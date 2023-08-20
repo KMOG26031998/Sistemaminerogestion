@@ -1,0 +1,273 @@
+*
+{
+    margin: 0;
+    padding: 0;    
+    font-family: "Calibri", sans-serif;
+}
+
+.nav-tp
+{
+    width: 100%;
+    margin-top: -40px;
+    height: 7.22014388489208vh;    
+    background-color: #007653;
+}
+
+.div-head-tittle
+{
+    width: 100%;
+    height: 7.333vh;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;        
+    background-image: url('../img/bngGoni.png');
+
+}
+
+.div-head-tittle h2:before
+{
+    content: 'REGISTRO DEL PERSONAL CONTRATADO';
+    font: 900;
+    font-size: 1.5em;
+    margin-left: 90px;
+    color: #ffffff;
+}
+.sec-input-data
+{
+    width: 90%;
+    height: 15vh;    
+    margin-left: 5%;
+    margin-top: 15px;
+    -webkit-box-shadow: 4px -9px 43px 0px rgba(0, 118, 83,1);
+    -moz-box-shadow: 4px -9px 43px 0px rgba(0, 118, 83,1);
+    box-shadow: 4px -9px 43px 0px rgba(0, 118, 83,1);
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border: 0px solid #f7f4f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec-input-data .form
+{
+    width: 90%;
+    height: 15vh;    
+    margin-left: 5%;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sec-main
+{    
+    width: 100%;
+    margin-top: 40px;
+    background: transparent;
+    height: 85.46762589928058vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-cont-date, .div-cont-ced, .div-cont-search
+{
+    width: 33% !important;    
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-cont-search
+{
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.div-cont-search
+{
+    justify-content: flex-start;
+}
+.inp-date, .inp-search
+{
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.inp-date:focus, .inp-ced:focus
+{
+    -webkit-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+    -moz-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+    box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+}
+
+.inp-date::placeholder, .inp-ced::placeholder
+{
+    color: #007653;
+}
+
+.inp-search
+{
+    width: 125px;
+    margin-left: 50px;
+    height: 6.9vh;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007653;
+    outline-offset: 0;
+    outline: 0px;
+}
+
+.inp-search:hover
+{background-color: #00AC79;}
+
+.form1
+{
+    width:100%;
+    height: 130.46762589928058vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-cont-main
+{
+    width: 90%;
+    height: auto; 
+    padding-bottom: 25px;
+    margin-top:110%; 
+    -webkit-box-shadow: 4px -9px 23px 0px rgba(0, 118, 83,1);
+    -moz-box-shadow: 4px -9px 23px 0px rgba(0, 118, 83,1);
+    box-shadow: 4px -9px 23px 0px rgba(0, 118, 83,1);
+    border-radius:15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    border: 0px solid #f7f4f7;
+
+}
+
+.div-row-one, .div-row-two, .div-row-three, .div-row-four, .div-row-five, .div-row-six, .div-row-seven, .div-row-eigth, .div-row-nine, .div-row-ten, .div-row-eleven
+{    
+    width: 90%;
+    height: 17.67vh;
+    margin-left: 5%;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-cont-ced, .div-cont-name, .div-cont-lname, .div-cont-edad, .div-cont-cod
+{  
+   
+    width: 90% !important;
+    margin-top: 6px !important;
+    height: 15vh;  
+    align-items: center;
+    justify-content: center;
+}
+
+.inp-ced, .inp-name, .inp-lname, .inp-edad, .inp-cod
+{
+    resize:none;
+    width: 90%;
+    height: 6.9vh;
+    border-radius: 10px;
+    border: none;
+    background-color: #D5DCD5;
+    padding: 0px 20px;
+    color: #000000;
+    font-size: 1em; 
+}
+.inp-ced:focus, .inp-name:focus, .inp-lname:focus, .sel-dep-transf:focus, .sel-dep-to-transf:focus, .inp-cod:focus, .inp-edad:focus, .txt-ar-ob:focus, .btn-accept
+{
+    -webkit-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+    -moz-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+    box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+}
+
+.inp-ced::placeholder, .inp-name::placeholder, .inp-lname::placeholder, .txt-ar-ob::placeholder, .inp-edad::placeholder, .inp-cod::placeholder
+{
+    color: #007653;
+}
+
+.div-cont-sel-dep-transf, .div-cont-sel-dep-to-transf
+{    
+    width: 40%;
+    height: auto; 
+    margin: 2%;
+    margin-top: 1%; 
+}
+
+.sel-dep-transf, .sel-dep-to-transf
+{
+    cursor: pointer;
+    width: 290px;
+    height: 6.9vh;
+    border: none;
+    background-color: #D5DCD5;
+    border-radius: 10px;
+    padding-left: 20px;
+    color: #000000;
+    font-size: 1em;
+    outline-offset: 0;
+    outline: 0px;
+    color: #000000;    
+}
+
+.div-observation
+{    
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt-ar-ob
+{
+    width: 75%;
+    height: 6.9vh;    
+    resize: none;
+    outline-offset: 0;
+    outline: 0px;
+    border: none;
+    background-color: #D5DCD5;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #000000;
+    font-size: 1em;
+    border-radius: 10px;
+}
+
+.btn-accept
+{
+    width: 125px;
+    margin-left: 50px;
+    height: 6.9vh;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007653;
+    outline-offset: 0;
+    outline: 0px;
+}
+
+.btn-accept:hover
+{
+    background-color: #00AC79;
+}
+footer
+{
+    width: 100%;
+    height: 20vh;
+
+}

@@ -1,0 +1,192 @@
+*
+{
+    margin: 0;
+    padding: 0;    
+    font-family: "Calibri", sans-serif;
+}
+
+.nav-tp
+{
+    width: 100%;
+    height: 7.22014388489208vh;    
+    background-color: #007653;
+}
+
+
+.div-head-tittle
+{
+    width: 100%;    
+    height: 7.333vh;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    background-image: url('../img/bngGoni.png');
+}
+
+.div-head-tittle h2:before
+{
+    content: 'RECUPERACION DE CLAVE';
+    font: 900;
+    font-size: 1.5em;
+    margin-left: 90px;
+    color: #ffffff;
+}
+
+.sec-main
+{    
+    width: 100%;
+    background: transparent;
+    height: 85.46762589928058vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form
+{
+    width:100%;
+    height: 85.46762589928058vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-cont-main
+{
+    width: 40%;
+    height: 71.94244604316546vh;    
+    -webkit-box-shadow: 4px -9px 43px 0px rgba(0, 118, 83,1);
+    -moz-box-shadow: 4px -9px 43px 0px rgba(0, 118, 83,1);
+    box-shadow: 4px -9px 43px 0px rgba(0, 118, 83,1);
+    border-radius: 34px 34px 34px 34px;
+    -moz-border-radius: 34px 34px 34px 34px;
+    -webkit-border-radius: 34px 34px 34px 34px;
+    border: 0px solid #f7f4f7;
+}
+
+
+.div-row-one, .div-row-two, .div-row-three, .div-row-four
+{    
+    width: 90%;
+    height: 17.67vh;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.div-cont-ced, .div-cont-name, .div-cont-lname, .div-cont-edad, .div-cont-cod
+{    
+    width: 100%;
+    /*height: 15vh;*/    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inp-ced, .inp-name, .inp-lname, .inp-edad, .inp-cod
+{
+    width: 275px;
+    height: 6.9vh;
+    border-radius: 10px;
+    border: none;
+    background-color: #D5DCD5;
+    padding-left: 20px;
+    color: #000000;
+    font-size: 1em;
+    outline-offset: 0;
+    outline: 0px;
+}
+
+.inp-edad::-webkit-inner-spin-button, .inp-edad::-webkit-outer-spin-button
+{
+    -webkit-appearance: none;
+}
+
+.inp-ced:focus, .inp-name:focus, .inp-lname:focus, .sel-dep-transf:focus, .sel-dep-to-transf:focus, .inp-cod:focus, .inp-edad:focus, .txt-ar-ob:focus, .btn-accept
+{
+    -webkit-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+    -moz-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+    box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
+}
+
+.inp-ced::placeholder, .inp-name::placeholder, .inp-lname::placeholder, .txt-ar-ob::placeholder, .inp-edad::placeholder, .inp-cod::placeholder
+{
+    color: #007653;
+}
+
+
+.div-cont-sel-dep-transf, .div-cont-sel-dep-to-transf
+{    
+    width: 40%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.sel-dep-transf, .sel-dep-to-transf
+{
+    cursor: pointer;
+    width: 290px;
+    height: 6.9vh;
+    border: none;
+    background-color: #D5DCD5;
+    border-radius: 10px;
+    padding-left: 20px;
+    color: #000000;
+    font-size: 1em;
+    outline-offset: 0;
+    outline: 0px;
+    color: #000000;    
+}
+
+
+.div-observation
+{    
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt-ar-ob
+{
+    width: 75%;
+    height: 6.9vh;    
+    resize: none;
+    outline-offset: 0;
+    outline: 0px;
+    border: none;
+    background-color: #D5DCD5;
+    padding-left: 20px;
+    padding-top: 5px;
+    color: #000000;
+    font-size: 1em;
+    border-radius: 10px;
+}
+
+.btn-accept
+{
+width: 150px;
+/*    margin-left: 50px;*/
+    height: 6.9vh;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007653;
+    outline-offset: 0;
+    outline: 0px;
+}
+
+.btn-accept:hover
+{
+    background-color: #00AC79;
+}

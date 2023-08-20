@@ -1,0 +1,16 @@
+.content{   
+    border-radius: 49px 50px 49px 48px !important;
+   -moz-border-radius: 49px 50px 49px 48px !important;
+   -webkit-border-radius: 49px 50px 49px 48px !important;
+    height: 400px !important;
+    -webkit-box-shadow: 7px -5px 20px -6px rgba(0, 118, 83,1)!important;
+   -moz-box-shadow: 7px -5px 20px -6px rgba(0, 118, 83,1)!important;
+    box-shadow: 7px -5px 20px -6px rgba(0, 118, 83,1)!important;
+    }
+    .animadoagregarinformacion{
+        background: none !important;
+        border: none !important;
+    }   
+    .header{
+      background: #007653 !important;  
+    } 
