@@ -3,7 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP/Documents/Sistemaminerogestion/web/Principal.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/ingreso.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/BD/conexion.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/Principal.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/DAO/InsertAddPersonal.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/index.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/nbproject/build-impl.xml</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/AddPostulante.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/css/clave.css</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/Actualizardatos.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/ActPostulante.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/AgregarPersonal.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/AddPersonal.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>

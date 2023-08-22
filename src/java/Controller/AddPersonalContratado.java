@@ -57,7 +57,7 @@ public class AddPersonalContratado extends HttpServlet {
             tipo = request.getParameter("horariolaboral");
             String personalUser = (String) session.getAttribute("personal_user11");
  
-            Part filePart = request.getPart("CargarArchivo");
+///            Part filePart = request.getPart("CargarArchivo");
 //            Part filePart = request.getPart("file");//Textbox value of name file.
 //            String firstName = request.getParameter("firstname");//Textbox value of name firstname.
 //            String lastName = request.getParameter("lastname");//Textbox value of name lastname.
@@ -111,7 +111,7 @@ public class AddPersonalContratado extends HttpServlet {
                 }
             }
 
-        } catch (IOException | ServletException e) {
+        } catch (IOException e) {
             out.println("Exception: " + e);
             System.out.println("Exception2: " + e);
         }

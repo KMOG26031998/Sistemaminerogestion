@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA </title>
-       <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="img/logoblancod.ico" href="img/logoblancod.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -13,14 +13,15 @@
         <link href="css/animacionprincipal.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="is-preload">     
-       <%
+        <%
             HttpSession s = request.getSession();
             //variables de session
+            if (s.getAttribute("personal_user11") == null) {
+                // Si no hay una sesión activa, redireccionar a una página de inicio de sesión
+                response.sendRedirect("./");
+            }
         %>    
-        <label id="usuario" style="display:none;"><%= s.getAttribute("personal_user11")%> </label> 
-        <label id="nombre"></label>
-
-        <header id="header" style="">
+   <header id="header" style="">
 
             <header id="header" style=" background: #007653 !important;">
                 <a class="logo" href="index.jsp">
@@ -40,15 +41,15 @@
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
-                                <a href="">
-                                    <img alt="" src="img/card_file_box_96px.png" alt=""/> 
+                                <a href="">  
+                                    <img alt=""src="img/add_user_group_woman_man_96px.png" alt=""/>
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">AGREGAR CONSULTA DE ASISTENCIA</h3>
-
+                                <h3 style="color:#007653; font-weight: bold">Ingresar Nuevo Postulante</h3>
                             </header>
-                            <p>Agregar consulta sobre el  asistencia</p>
-                            <a href="Personalcontratado.jsp" class="button primary" style=" background: #007653 !important;" >Agregar consulta o asistencia</a>
-                         <!-- <a id="PaginaPerso" class="button primary" style=" background: #007653 !important;" >Agregar consulta o anticipos</a>-->
+                            <p>Ingresar datos personales por primera vez</p>
+                            <a href="ingreso.jsp" class="button primary" style=" background: #007653 !important;">Ingresar Nuevo Postulante</a>
+                            <br>
+                            <a href="Actualizardatos.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar Postulante</a>
                         </div>
                     </section>
 
@@ -91,21 +92,21 @@
                             </header>
                             <p>Podrá hacer actualizaciones</p>
                             <a href="ActualizarDatosPersonales.jsp" class="button primary" style=" background: #007653 !important;">Actualizar</a>
-                            </div>
+                        </div>
                     </section>
                     <!-- Quinto MODULO -->
-                    <section class="animadoagregarinformacion">
+                      <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
-                                <a href="">  
-                                    <img alt=""src="img/add_user_group_woman_man_96px.png" alt=""/>
+                                <a href="">
+                                    <img alt="" src="img/card_file_box_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">Ingresar Nuevo Postulante</h3>
+                                <h3 style="color:#007653; font-weight: bold">AGREGAR CONSULTA DE ASISTENCIA</h3>
+
                             </header>
-                            <p>Ingresar datos personales por primera vez</p>
-                            <a href="ingreso.jsp" class="button primary" style=" background: #007653 !important;">Ingresar Nuevo Postulante</a>
-                            <br>
-                            <a href="Actualizardatos.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar Postulante</a>
+                            <p>Agregar consulta sobre el  asistencia</p>
+                            <a href="Personalcontratado.jsp" class="button primary" style=" background: #007653 !important;" >Agregar consulta o asistencia</a>
+                            <!-- <a id="PaginaPerso" class="button primary" style=" background: #007653 !important;" >Agregar consulta o anticipos</a>-->
                         </div>
                     </section>
                     <!-- Sexto MODULO -->
