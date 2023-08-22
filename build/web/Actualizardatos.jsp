@@ -10,7 +10,7 @@
 <body onload="cargarProvincias()">
     <header id="header" style=" background: #007653 !important;">
         <a class="logo" href="Principal.jsp">
-            
+
         </a>
         <a class="logo" id="ulUserData" href="index.html"></a> 
     </header>  
@@ -18,9 +18,13 @@
     <form class="form1" action="ActPostulante " method="POST" style="margin-top:30px">
         <section class="sec-main">
             <div class="div-cont-main">
-                <div class="div-cont-ced">
-                    <input type="button" id="btn-actionbu" class="inp-search" value="Buscar"/>
+                <div class="div-cont-ced"> 
+                    <select class="sel-dep-to-transf inp-ced" required=""  name="estadoCivil"id="txt-lnamediec">
+                        <option value="1" >Cédula Identidad:</option>
+                        <option value="0">Nombres:</option>
+                    </select>
                     <input type="text" id="txt-cedee" class="inp-ced" onkeypress='return validaNumericos(event)' placeholder="Cédula" name="cedula" maxlength="15"/>
+                    <input type="button" id="btn-actionbu" class="inp-search" value="Buscar"/>
                 </div>  
                 <hr />
                 <div class="div-cont-ced">
@@ -90,7 +94,8 @@
                                         <option>Seleccione genero</option>
                                         <option>Masculino</option>
                                         <option>Femenino</option></select></div></td> 
-                            <td><div class="div-cont-sel-dep-to-transf"  ><select class="sel-dep-to-transf"required=""  name="estadoCivil"id="txt-lnamediec">
+                            <td><div class="div-cont-sel-dep-to-transf"  >
+                                    <select class="sel-dep-to-transf" required=""  name="estadoCivil"id="txt-lnamediec">
                                         <option>Seleccione el estado civil</option>
                                         <option>Soltero</option>
                                         <option>Casado</option>

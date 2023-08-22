@@ -18,7 +18,7 @@
         <div class="div-head-tittle" style="margin-top:-18px"><h2></h2></div>
 
 
-        <form class="form1" action="/WebAPP/AddPostulante" autocomplete="off" style="margin-top:-30px">
+        <form class="form1" action="/Sistemaminerogestion/AddPostulante" autocomplete="off" style="margin-top:-30px">
             <section class="sec-main">
                 <div class="div-cont-main">
 
