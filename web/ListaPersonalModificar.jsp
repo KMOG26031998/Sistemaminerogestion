@@ -90,8 +90,8 @@
                 html += "<tr><td>" + personas[i].postulanteid + "</td><td>" + personas[i].postulante_primernombre + " " + personas[i].postulante_segundonombre
                         + "</td><td>" + personas[i].postulante_primerapellido + " " + personas[i].postulante_segundoapellido
                         + "</td><td>" + personas[i].postulante_dni + "</td><td>" + personas[i].postulante_nacionalidad + "</td><td>\n\
-                           <a href=\"ActPostulante?id="+personas[i].postulanteid+ "\" class=\"btn btn-info btn-sm\">Editar</a>\n\
-                           <a id=\"btn_eliminar" + i + "\" href=\"#\" class=\"btn btn-danger btn-sm eliminar-persona\" data-id=\"" + i + "\">Eliminar</a></td></tr>";
+                           <a href=\"ActPostulante?id="+personas[i].postulanteid+"&Tipo=mod\" class=\"btn btn-info btn-sm\">Editar</a>\n\
+                           <a id=\"btn_eliminar" + i + "\" href=\"ActPostulante?id="+personas[i].postulanteid+"&Tipo=delete\" class=\"btn btn-danger btn-sm eliminar-persona\" data-id=\"" + i + "\">Eliminar</a></td></tr>";
             }
 
             $("#tabla-personas").html(html);

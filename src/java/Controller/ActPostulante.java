@@ -122,7 +122,12 @@ public class ActPostulante extends HttpServlet {
             throws ServletException, IOException {
         BuscadorPostulante usuario = new BuscadorPostulante();
         String id = request.getParameter("id");
+        String tipo =request.getParameter("Tipo")!= null?request.getParameter("Tipo"):"";
         Buscadorpostulantecontr buscar = new Buscadorpostulantecontr();
+        if (tipo.equals("delete")) {
+             buscar.ActualizaEstadoPsotulante(id);
+              request.getRequestDispatcher("ListaPersonalModificar.jsp").forward(request, response);
+        }else if (tipo.equals("mod")){
         usuario = buscar.ListabuscadorpostulanteId(id);
         String fechaString = usuario.getPostulante_fechanacimiento(); // Cambia esto por la fecha real
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -135,7 +140,7 @@ public class ActPostulante extends HttpServlet {
         usuario.setPostulante_fechanacimiento(String.valueOf(año) + "-" + mesFormateado + "-" + diaFormateado);
         request.setAttribute("usuario", usuario);
         request.getRequestDispatcher("Actualizardatos.jsp").forward(request, response);
-
+        }
     }
 
     @Override

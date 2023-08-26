@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <link href="css/Asistencia.css" rel="stylesheet" type="text/css"/> 
+        <link href="css/Asistencia_1.css" rel="stylesheet" type="text/css"/> 
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA</title>
     </head>
