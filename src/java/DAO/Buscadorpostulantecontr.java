@@ -23,7 +23,7 @@ public class Buscadorpostulantecontr {
         pst = null;
         rs = null;
         try {
-            
+
             sql_command = "select * from postulante p where p.postulante_id  =" + id;
             pst = cn.getConecction().prepareStatement(sql_command);
             rs = pst.executeQuery();
@@ -70,7 +70,7 @@ public class Buscadorpostulantecontr {
         }
         return newbuscarp;
     }
-    
+
     public BuscadorPostulante Listabuscadorpostulantecontr(String cedula) {
         BuscadorPostulante newbuscarp = null;
         pst = null;
@@ -125,7 +125,7 @@ public class Buscadorpostulantecontr {
 
     public List<BuscadorPostulante> obtenerListaPostulantes() {
         List<BuscadorPostulante> listaPostulantes = new ArrayList<>();
-        String query = "SELECT * FROM postulante";
+        String query = "SELECT * FROM postulante p where p.postulante_estado in ('Activo','ACTIVO')  ";
         try {
             pst = cn.getConecction().prepareStatement(query);
             rs = pst.executeQuery();
@@ -162,6 +162,37 @@ public class Buscadorpostulantecontr {
         }
 
         return listaPostulantes;
+    }
+
+    public void ActualizaEstadoPsotulante(String id) {
+        pst = null;
+        rs = null;
+        try {
+            sql_command = "UPDATE public.postulante "
+                    + "SET postulante_estado ='In-activo'"
+                    + "WHERE postulante_id= ?;";
+            pst = cn.getConecction().prepareStatement(sql_command);
+            pst.setInt(1, Integer.parseInt(id));
+            rs = pst.executeQuery();
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            try {
+                if (cn.isConected()) {
+                    cn.getConecction().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+
     }
 
     public BuscadorPostulante Listabuscadorpostulantecontr(String apellido, String nombre) {

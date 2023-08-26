@@ -52,7 +52,7 @@
             </h2>
         </div>
 
-        <form id="form1" method="POST" enctype="multipart/form-data">
+        <form id="form1" method="POST" action="AddPersonalContratado" enctype="multipart/form-data">
             <section class="sec-main">
                 <div class="div-cont-main">
                     <div class="row justify-content-center pt-3"> 
@@ -135,7 +135,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><textarea type="text" id="txt-aalergic" class="inp-lname" placeholder="Estudio Primario" name="AAl" onkeyup="mayus(this);"style='height: 50px;'/></textarea> </td>
+                                <td><textarea type="text" id="txt-aalergic" class="inp-lname" placeholder="Estudio Primario" name="EstPrimario" onkeyup="mayus(this);"style='height: 50px;'/></textarea> </td>
                             </tr>
                         <thead>
                             <tr>
@@ -144,7 +144,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><textarea type="text" id="txt-estSecuendaria" class="inp-lname" placeholder="Estudio Secundario" onkeyup="mayus(this);"name="AP"style='height: 50px;'/></textarea></td>
+                                <td><textarea type="text" id="txt-estSecuendaria" class="inp-lname" placeholder="Estudio Secundario" onkeyup="mayus(this);"name="EstSecundario"style='height: 50px;'/></textarea></td>
                             </tr> 
                         <thead>
                             <tr>
@@ -153,7 +153,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><textarea type="text" id="txt-estTercerNivel" class="inp-lname" placeholder="Estudio Tercer Nivel" onkeyup="mayus(this);" name="AF"style='height: 50px;'/></textarea></td>
+                                <td><textarea type="text" id="txt-estTercerNivel" class="inp-lname" placeholder="Estudio Tercer Nivel" onkeyup="mayus(this);" name="EstTercerN"style='height: 50px;'/></textarea></td>
                             </tr>
                         <thead>
                             <tr>
@@ -162,7 +162,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><textarea type="text" id="txt-estActuales" class="inp-lname" placeholder="Estudios actuales" onkeyup="mayus(this);"name="Aq"style='height: 50px;'/></textarea></td>
+                                <td><textarea type="text" id="txt-estActuales" class="inp-lname" placeholder="Estudios actuales" onkeyup="mayus(this);"name="EstActuales"style='height: 50px;'/></textarea></td>
                             </tr> 
                         </tbody>
                     </table>  
@@ -177,9 +177,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><div class="div-cont-name" ><input type="text" id="txt-expLaboral" class="inp-ced" placeholder="Experiencia Laboral"onkeyup="mayus(this);" name="Experiencia Laboral"/></div></td>
+                                <td><div class="div-cont-name" ><input type="text" id="txt-expLaboral" class="inp-ced" placeholder="Experiencia Laboral"onkeyup="mayus(this);" name="ExpLaboral"/></div></td>
                                 <td><div class="div-cont-name" ><input type="text" id="txt-refPresonal" class="inp-name" placeholder="Refencia personal" name="Refenciapersonal"/></div></td>
-                                <td><div class="div-cont-lname"><input type="text" id="txt-refLaboral" class="inp-lname" placeholder="Referencia laboral" name="referencialaboral" onkeyup="mayus(this);"/></div></td>
+                                <td><div class="div-cont-lname"><input type="text" id="txt-refLaboral" class="inp-lname" placeholder="Referencia laboral" name="Referencialaboral" onkeyup="mayus(this);"/></div></td>
                             </tr>
                         <thead>
                             <tr>
@@ -201,7 +201,7 @@
                     <div class="row justify-content-center">
                         <div style="width: 50%;" class="d-flex justify-content-around">
                             <a href="./Principal.jsp" type="button" class="btn rounded-pill" style="background-color: #007653 !important; color: #ffffff;" >Cancelar</a>
-                            <button type="button" id="btn-actiong" class="btn rounded-pill" style="background-color: #007653 !important;color: #ffffff;">Guardar</button>
+                            <input type="submit" id="btn-actiong" class="btn rounded-pill" value="Guardar" style="background-color: #007653 !important;color: #ffffff;"/>
                         </div>
                     </div> 
                 </div>
