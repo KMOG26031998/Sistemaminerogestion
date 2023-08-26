@@ -12,7 +12,7 @@
             <nav class="nav-tp"></nav>
         </header>      
         <div class="div-head-tittle"><h2></h2></div>
-
+  
 
         <form class="form1"> 
             <section class="sec-main">
@@ -35,16 +35,16 @@
 
                         <thead >
                             <tr>                          
-                                <th>Actividad</th>
-                                <th>Observacion</th>
+                                <th>Asistencia</th>
+                                <th>Actividad/Observacion</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><div class="div-cont-lname"><input type="text" onkeyup="mayus(this);" id="txt-lnamem" class="inp-lname" placeholder="Actividad" name="actividad"/></div></td>
+                                 <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Asistencia"required=""  name="Asistencia"/></div></td> 
                                 <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Observaciones" name="observaciones"/></div></td>
                                 <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="button" id="btn-action" class="btn-accept" value="+"> 
-                                        <input type="button"  id="btn-addReceta" class="btn-accept" value="GUARDAR"></div></td> 
+                                        <input type="button"  id="btn-addasistencia" class="btn-accept" value="GUARDAR"></div></td> 
 
                             </tr>
                         </tbody>                        
@@ -57,8 +57,8 @@
                                     <tr> 
 
                                         <td>Nª</td>
-                                        <td>Actividad</td>
-                                        <td>Observaciones</td>
+                                        <td>Asistencia</td>
+                                        <td>Actividad/Observacion</td>
                                         <td>Acciones</td>
 
                                     </tr>

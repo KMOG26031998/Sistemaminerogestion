@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,14 +6,14 @@
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA </title>
     </head>
     <body>
-        <form name="form1" method="post" action="REPORTEHistorialpaciente.jsp">
+        <form name="form1" method="post" action="REPORTEHistorialpostulante.jsp">
             <%
                 HttpSession s = request.getSession();
                 //variables de session
             %>
             <table width="487" align="center">
                 <tr>
-                    <td colspan="2" align="center"><strong>REPORTES PDF HISTORIAL POSTULANTE </strong></td>
+                    <td colspan="2" align="center"><strong>REPORTES PDF HISTORIAL POSTULANTES ENTREVISTADOS </strong></td>
                 </tr>
                 <tr>
                     <td width="168">SU USUARIO ES:</td>

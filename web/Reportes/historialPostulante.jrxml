@@ -8,36 +8,36 @@
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
-	pa.paciente_dni,
-	concat(pa.paciente_apellido_paterno || ' ' || pa.paciente_apellido_materno) as pa_apellidos,
-	concat(pa.paciente_primer_nombre || ' ' || pa.paciente_segundo_nombre) as pa_nombres,
-	pa.paciente_grupo,
-	pa.paciente_ayudasocial,
-	ga.galeno_dni,
+	pa.postulante_dni,
+	concat(pa.postulante_apellido_paterno || ' ' || pa.postulante_apellido_materno) as pa_apellidos,
+	concat(pa.postulante_primer_nombre || ' ' || pa.postulante_segundo_nombre) as pa_nombres,
+	pa.postulante_grupo,
+	pa.postulante_ayudasocial,
+	ga.personal_dni,
 	ma.fechaconsulta,
 	ma.motivoconsulta,
 	ma.diagnositico,
-	concat(ga.galeno_apellido_paterno || ' ' || ga.galeno_apellido_materno) as ga_apellidos,
-	concat(ga.galeno_primer_nombre || ' ' || ga.galeno_segundo_nombre) as ga_nombres,
-	ga.galeno_telefono,
-	ga.galeno_correoelectronico
-	FROM paciente pa, medicinageneral ma, galeno ga
-	WHERE ma.paciente_dni = pa.paciente_dni AND ma.galeno_user = ga.galeno_user AND
-		  ga.galeno_user = $P{p_usuario}]]>
+	concat(ga.personal_apellido_paterno || ' ' || ga.personal_apellido_materno) as ga_apellidos,
+	concat(ga.personal_primer_nombre || ' ' || ga.personal_segundo_nombre) as ga_nombres,
+	ga.personal_telefono,
+	ga.personal_correoelectronico
+	FROM postulante pa, medicinageneral ma, personal ga
+	WHERE ma.postulante_dni = pa.postulante_dni AND ma.personal_user = ga.personal_user AND
+		  ga.personal_user = $P{p_usuario}]]>
 	</queryString>
-	<field name="paciente_dni" class="java.lang.String"/>
+	<field name="postulante_dni" class="java.lang.String"/>
 	<field name="pa_apellidos" class="java.lang.String"/>
 	<field name="pa_nombres" class="java.lang.String"/>
-	<field name="paciente_grupo" class="java.lang.String"/>
-	<field name="paciente_ayudasocial" class="java.lang.String"/>
-	<field name="galeno_dni" class="java.lang.String"/>
+	<field name="postulante_grupo" class="java.lang.String"/>
+	<field name="postulante_ayudasocial" class="java.lang.String"/>
+	<field name="personal_dni" class="java.lang.String"/>
 	<field name="fechaconsulta" class="java.lang.String"/>
 	<field name="motivoconsulta" class="java.lang.String"/>
 	<field name="diagnositico" class="java.lang.String"/>
 	<field name="ga_apellidos" class="java.lang.String"/>
 	<field name="ga_nombres" class="java.lang.String"/>
-	<field name="galeno_telefono" class="java.lang.String"/>
-	<field name="galeno_correoelectronico" class="java.lang.String"/>
+	<field name="personal_telefono" class="java.lang.String"/>
+	<field name="personal_correoelectronico" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -48,14 +48,14 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[GOBIERNO AUTÓNOMO DESCENTRALIZADO DE QUEVEDO]]></text>
+				<text><![CDATA[SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="b7918f8a-e44d-42e7-bbf5-497675b4cc10" x="213" y="27" width="355" height="27"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DEPARTAMENTO DE MEDICINA GENERAL]]></text>
+				<text><![CDATA[DEPARTAMENTO DE TALENTO HUMANO]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -66,14 +66,14 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[DATOS GENERALES DEL MEDICO]]></text>
+				<text><![CDATA[DATOS GENERALES DEL ADMINISTRADOR]]></text>
 			</staticText>
 			<textField>
 				<reportElement uuid="db7e7c2c-673a-4762-ab05-0b2cf6e0676c" x="88" y="36" width="452" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{galeno_dni}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{personal_dni}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="d6fc7e68-1d66-4228-9a91-013c4f820a67" x="88" y="56" width="148" height="20"/>
@@ -94,14 +94,14 @@
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{galeno_telefono}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{personal_telefono}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="d040eb55-2d17-4f77-b357-58836ef2294d" x="88" y="96" width="452" height="20"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{galeno_correoelectronico}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{personal_correoelectronico}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="5cac522a-3579-411a-a58f-17fb3a50965c" x="15" y="35" width="58" height="20"/>
@@ -140,7 +140,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true" isItalic="false"/>
 				</textElement>
-				<text><![CDATA[PACIENTES ATENDIDOS]]></text>
+				<text><![CDATA[POSTULANTES ENTREVISTADOS]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="4c255d0f-495e-4d9b-b717-147aed17d32e" x="7" y="20" width="100" height="20"/>
@@ -200,7 +200,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{paciente_dni}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{postulante_dni}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="061ba73a-46cf-4f77-9fdf-5c29145c3e72" x="107" y="0" width="129" height="20"/>
@@ -221,14 +221,14 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{paciente_grupo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{postulante_grupo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="26427daa-51a3-416d-8783-a621f1571caa" x="471" y="0" width="76" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{paciente_ayudasocial}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{postulante_ayudasocial}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="79c4763b-a981-4c06-af56-e710ab9a868f" x="547" y="0" width="150" height="20"/>
@@ -270,7 +270,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isItalic="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{galeno_dni}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{personal_dni}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="2aa427f5-0026-4142-a684-797f5e2ba4af" x="736" y="133" width="80" height="20"/>

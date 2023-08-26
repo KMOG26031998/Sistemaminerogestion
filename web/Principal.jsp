@@ -104,10 +104,10 @@
                                 <a href="" >
                                     <img src="img/combo_chart_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Reportes</h3>
+                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Control de Asistencia, Anticipos y Reportes</h3>
                             </header>
-                            <p>Descargar en PDF las actividades o pagos hechos al personal</p>
-                            <a href="Reportes.jsp" class="button primary" style=" background: #007653 !important;">Ver reportes</a>
+                            <p>Registrar la asistencia del personal, los anticipos y descargar en PDF los reportes</p>
+                            <a href="Reportes.jsp" class="button primary" style=" background: #007653 !important;">Ingresar</a>
                         </div>
                     </section>
                     <!-- Sexto MODULO -->
