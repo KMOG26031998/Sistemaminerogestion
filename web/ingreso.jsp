@@ -119,9 +119,8 @@
                         <tbody>
                             <tr> 
                                 <td><div class="div-cont-sel-dep-to-transf"  ><select class="sel-dep-to-transf"required=""  name="Ayuda">
-                                            <option>Tiene carnet de discapacidad</option>
-                                            <option>Si</option>
-                                            <option>No</option>
+                                            <option value="No">No</option>
+                                            <option value="Si">Si</option>
                                         </select></div></td> 
                                 <td><div class="div-cont-lname"><input type="text" id="nacionalidad" class="inp-lname" placeholder="nacionalidad"required="" value="Ecuatoriana" name="nacionalidad" onkeyup="mayus(this);"/></div></td>
                                 <td><div class="div-cont-lname"><input type="text" id="txt-lname" class="inp-lname" placeholder="Discapacidad" value="Ninguna" required=""  name="discapacidad" onkeyup="mayus(this);"/></div></td>

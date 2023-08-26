@@ -32,7 +32,37 @@
         <section class="wrapper">
             <div class="inner" >
                 <div class="highlights">
-                    <!-- PRIMER MODULO -->
+                        <!-- PRIMER MODULO -->
+                    <section class="animadoagregarinformacion">
+                        <div class="content">
+                            <header>
+                                <a href="">
+                                    <img src="img/counselor_96px.png" alt=""/> 
+                                    <span class="label"></span></a>
+                                <h3 style="color:#007653; font-weight: bold">REGISTRO DE ASISTENCIA</h3>
+
+                            </header>
+                            <p>Ingresar la entrada del personal a la empresa</p> 
+                            <a href="Asistencia.jsp" class="button primary" style=" background: #007653 !important;" href="" >Acceder</a>
+                        </div>
+                    </section> 
+                        
+                        <!-- SEGUNDO MODULO -->
+                    <section class="animadoagregarinformacion">
+                        <div class="content">
+                            <header>
+                                <a href="">
+                                    <img src="img/us_dollar_96px.png" alt=""/> 
+                                    <span class="label"></span></a>
+                                <h3 style="color:#007653; font-weight: bold">REGISTRO DE ANTICIPO DE SUELDO</h3>
+
+                            </header>
+                            <p>Almacenar los anticipos de sueldo que el personal solicito</p>
+                            <a href="formularioReporteHistorialPostulantes.jsp" class="button primary" style=" background: #007653 !important;" href="" >Acceder</a>
+                        </div>
+                    </section>
+                    
+                    <!-- TERCER MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
@@ -47,7 +77,7 @@
                         </div>
                     </section>
 
-                    <!-- SEGUNDO MODULO -->
+                    <!-- CUARTO MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>

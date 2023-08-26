@@ -4,14 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Git/karina/Sistemaminerogestion/web/Personalcontratado.jsp</file>
-            <file>file:/C:/Git/karina/Sistemaminerogestion/web/css/General.css</file>
-            <file>file:/C:/Git/karina/Sistemaminerogestion/web/js/Buscadorpostulante.js</file>
-            <file>file:/C:/Git/karina/Sistemaminerogestion/web/Actualizardatos.jsp</file>
             <file>file:/C:/Git/karina/Sistemaminerogestion/web/Principal.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/ActualizarDatosPersonales.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/ListaPersonalContrato.jsp</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/css/General.css</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/AddPersonalContratado.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/AddPostulante.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/web/Actualizardatos.jsp</file>
             <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/DAO/Buscadorpostulantecontr.java</file>
             <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/consultaPostulantes.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Model/BuscadorPostulante.java</file>
             <file>file:/C:/Git/karina/Sistemaminerogestion/web/ListaPersonalModificar.jsp</file>
             <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/ActPostulante.java</file>
+            <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/DAO/InsertAddPostulante.java</file>
             <file>file:/C:/Git/karina/Sistemaminerogestion/src/java/Controller/AddPersonal.java</file>
         </group>
     </open-files>
