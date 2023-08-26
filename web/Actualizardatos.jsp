@@ -4,36 +4,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" > 
         <link href="css/Actualizardatospostulante.css" rel="stylesheet" type="text/css"/>
-    <a href="../src/java/DAO/Buscadorpostulantecontr.java"></a>
     <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA </title>
 </head>
 <body onload="cargarProvincias()">
-    <header id="header" style=" background: #007653 !important;">
-        <a class="logo" href="Principal.jsp">
-
-        </a>
-        <a class="logo" id="ulUserData" href="index.html"></a> 
-    </header>  
-    <div class="div-head-tittle"><h2></h2></div>
-    <form class="form1" action="ActPostulante " method="POST" style="margin-top:30px">
+    <div class="div-head-tittle">
+        <h2 class="title">
+            ACTUALIZACION DE LOS DATOS DEL POSTULANTE
+        </h2></div>
+    <form class="form1" action="ActPostulante " method="POST" >
         <section class="sec-main">
             <div class="div-cont-main">
-                <div class="div-cont-ced"> 
-                    <select class="sel-dep-to-transf inp-ced" required=""  name="estadoCivil"id="txt-lnamediec">
-                        <option value="1" >Cédula Identidad:</option>
-                        <option value="0">Nombres:</option>
-                    </select>
-                    <input type="text" id="txt-cedee" class="inp-ced" onkeypress='return validaNumericos(event)' placeholder="Cédula" name="cedula" maxlength="15"/>
-                    <input type="button" id="btn-actionbu" class="inp-search" value="Buscar"/>
-                </div>  
-                <hr />
-                <div class="div-cont-ced">
-                    <input type="button" id="btn-actionbusc" class="inp-search" value="Buscar"/></th>
-                    <input style='width: 40%' type="text" id="txt-nameaz" class="inp-name" placeholder="Nombres" name="PrimerNombre"   onkeypress="return soloLetras(event)" onkeyup="mayus(this);"/>
-                    <p></p>
-                    <input style='width: 40%; margin-left:5%;'  type="text" id="txt-lnamesegaz" class="inp-lname" placeholder="Apellidos" name="SegundoNombre" onkeypress="return soloLetras(event)" onkeyup="mayus(this);"/>
-                </div> 
-                <hr />
                 <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
                     <thead >
                         <tr>

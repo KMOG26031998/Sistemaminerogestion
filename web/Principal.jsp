@@ -21,7 +21,7 @@
                 response.sendRedirect("./");
             }
         %>    
-   <header id="header" style="">
+        <header id="header" style="">
 
             <header id="header" style=" background: #007653 !important;">
                 <a class="logo" href="index.jsp">
@@ -49,35 +49,38 @@
                             <p>Ingresar datos personales por primera vez</p>
                             <a href="ingreso.jsp" class="button primary" style=" background: #007653 !important;">Ingresar Nuevo Postulante</a>
                             <br>
-                            <a href="Actualizardatos.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar Postulante</a>
+                            <a href="ListaPersonalModificar.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar Postulante</a>
                         </div>
                     </section>
 
                     <!-- SEGUNDO MODULO -->
-                    <section class="animadoagregarinformacion">
+                       <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
-                                <a href="" >
-                                    <img src="img/combo_chart_96px.png" alt=""/> 
+                                <a href="">
+                                    <img alt="" src="svg/curriculum.svg" width="96" height="96">
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Reportes</h3>
+                                <h3 style="color:#007653; font-weight: bold">HOJA DE VIDA</h3>
                             </header>
-                            <p>Descargar en PDF las actividades o pagos hechos al personal</p>
-                            <a href="Reportes.jsp" class="button primary" style=" background: #007653 !important;">Ver reportes</a>
+                            <p>Ingresar o actualizar Hoja de vida de postulante</p>
+                            <a href="Personalcontratado.jsp" class="button primary" style=" background: #007653 !important;" >Agregar Personal</a>
+                            <%--<a href="ListarPersonal.jsp" class="button primary" style=" background: #007653 !important;">Ingreso de Datos</a>--%>
                         </div>
                     </section>
-
                     <!-- TERCER MODULO -->                 
+                
+                    
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
                                 <a href="">
-                                    <img src="img/task_96px.png" alt=""/> 
+                                    <img alt="" src="img/card_file_box_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">Historial</h3>
+                                <h3 style="color:#007653; font-weight: bold">CONTRATAR PERSONAL</h3>
                             </header>
-                            <p>Mostrar la información de las actividades del personal de trabajo</p>
-                            <a href="HistorialPagos.jsp" class="button primary"style=" background: #007653 !important;">Ver historial</a>
+                            <p>Seleccione postulantes para contrartar</p>
+                            <a href="ListaPersonalContrato.jsp" class="button primary" style=" background: #007653 !important;" >Contratar Personal</a>
+                            <!-- <a id="PaginaPerso" class="button primary" style=" background: #007653 !important;" >Agregar consulta o anticipos</a>-->
                         </div>
                     </section>
 
@@ -95,33 +98,31 @@
                         </div>
                     </section>
                     <!-- Quinto MODULO -->
-                      <section class="animadoagregarinformacion">
-                        <div class="content">
-                            <header>
-                                <a href="">
-                                    <img alt="" src="img/card_file_box_96px.png" alt=""/> 
-                                    <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">AGREGAR CONSULTA DE ASISTENCIA</h3>
-
-                            </header>
-                            <p>Agregar consulta sobre el  asistencia</p>
-                            <a href="Personalcontratado.jsp" class="button primary" style=" background: #007653 !important;" >Agregar consulta o asistencia</a>
-                            <!-- <a id="PaginaPerso" class="button primary" style=" background: #007653 !important;" >Agregar consulta o anticipos</a>-->
-                        </div>
-                    </section>
-                    <!-- Sexto MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
-                                <a href="">
-                                    <img alt="" src="svg/curriculum.svg" width="96" height="96">
+                                <a href="" >
+                                    <img src="img/combo_chart_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">HOJA DE VIDA</h3>
+                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Reportes</h3>
                             </header>
-                            <p>Subir o actualizar curriculum</p>
-                            <a href="ListarPersonal.jsp" class="button primary" style=" background: #007653 !important;">Subir curriculum</a>
-                            <br>
-                            <a href="ListarPersonalGeneral.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar curriculum</a>
+                            <p>Descargar en PDF las actividades o pagos hechos al personal</p>
+                            <a href="Reportes.jsp" class="button primary" style=" background: #007653 !important;">Ver reportes</a>
+                        </div>
+                    </section>
+                    <!-- Sexto MODULO -->
+                 
+                    
+                        <section class="animadoagregarinformacion">
+                        <div class="content">
+                            <header>
+                                <a href="">
+                                    <img src="img/task_96px.png" alt=""/> 
+                                    <span class="label"></span></a>
+                                <h3 style="color:#007653; font-weight: bold">Historial</h3>
+                            </header>
+                            <p>Mostrar la información de las actividades del personal de trabajo</p>
+                            <a href="HistorialPagos.jsp" class="button primary"style=" background: #007653 !important;">Ver historial</a>
                         </div>
                     </section>
                 </div>

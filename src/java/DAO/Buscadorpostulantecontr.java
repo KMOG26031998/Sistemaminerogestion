@@ -5,6 +5,10 @@ import java.sql.SQLException;
 import Model.BuscadorPostulante;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Buscadorpostulantecontr {
 
@@ -15,18 +19,15 @@ public class Buscadorpostulantecontr {
     private PreparedStatement pst = null;
 
     public BuscadorPostulante Listabuscadorpostulantecontr(String cedula) {
-        BuscadorPostulante newbuscarp = new BuscadorPostulante();
+        BuscadorPostulante newbuscarp = null;
         pst = null;
         rs = null;
         try {
-            sql_command = "select postulante_dni,postulante_tipo_dni, postulante_primer_nombre, postulante_segundo_nombre, \n"
-                    + "postulante_apellido_paterno, postulante_apellido_materno,postulante_fnacimiento,\n"
-                    + "postulante_convencional,postulante_telefono, postulante_provincia,postulante_canton, postulante_parroquia,\n"
-                    + "postulante_direccion, postulante_genero,postulante_estado_civil, postulante_social,postulante_nacionalidad, postulantegrupo,\n"
-                    + "postulante_cargo,postulante_correoelectronico from postulante where postulante_dni ='" + cedula + "'";
+            sql_command = "select * from postulante where postulante_dni ='" + cedula + "'";
             pst = cn.getConecction().prepareStatement(sql_command);
             rs = pst.executeQuery();
             while (rs.next()) {
+                newbuscarp = new BuscadorPostulante();
                 newbuscarp.setPostulante_dni(String.valueOf(rs.getString("postulante_dni")));
                 newbuscarp.setPostulante_tipo_dni(String.valueOf(rs.getString("postulante_tipo_dni")));
                 newbuscarp.setPostulante_primernombre(String.valueOf(rs.getString("postulante_primer_nombre")));
@@ -67,6 +68,47 @@ public class Buscadorpostulantecontr {
             }
         }
         return newbuscarp;
+    }
+
+    public List<BuscadorPostulante> obtenerListaPostulantes() {
+        List<BuscadorPostulante> listaPostulantes = new ArrayList<>();
+        String query = "SELECT * FROM postulante";
+        try {
+            pst = cn.getConecction().prepareStatement(query);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                BuscadorPostulante postulante = new BuscadorPostulante();
+                postulante.setPostulanteid(rs.getString("postulante_id"));
+                postulante.setPostulante_tipo_dni(rs.getString("postulante_tipo_dni"));
+                postulante.setPostulante_dni(rs.getString("postulante_dni"));
+                postulante.setPostulante_primerapellido(rs.getString("postulante_apellido_paterno"));
+                postulante.setPostulante_primernombre(rs.getString("postulante_primer_nombre"));
+                postulante.setPostulante_fechanacimiento(rs.getString("postulante_fnacimiento"));
+                postulante.setPostulante_direccion(rs.getString("postulante_direccion"));
+                postulante.setPostulante_telefono(rs.getString("postulante_telefono"));
+                postulante.setPostulante_genero(rs.getString("postulante_genero"));
+                postulante.setPostulante_grupo(rs.getString("postulante_grupo"));
+                postulante.setPostulante_social(rs.getString("postulante_social"));
+                postulante.setCreated_at(rs.getTimestamp("created_at"));
+                postulante.setPostulante_segundoapellido(rs.getString("postulante_apellido_materno"));
+                postulante.setPostulante_segundonombre(rs.getString("postulante_segundo_nombre"));
+                postulante.setPostulante_estado(rs.getString("postulante_estado"));
+                postulante.setPostulante_provincia(rs.getString("postulante_provincia"));
+                postulante.setPostulante_canton(rs.getString("postulante_canton"));
+                postulante.setPostulante_parroquia(rs.getString("postulante_parroquia"));
+                postulante.setPostulante_nacionalidad(rs.getString("postulante_nacionalidad"));
+                postulante.setPostulante_estadocivil(rs.getString("postulante_estado_civil"));
+                postulante.setPostulante_convencional(rs.getString("postulante_convencional"));
+                postulante.setPostulante_cargo(rs.getString("postulante_cargo"));
+                postulante.setPostulante_correoelectronico(rs.getString("postulante_correoelectronico"));
+                listaPostulantes.add(postulante);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Buscadorpostulantecontr.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return listaPostulantes;
     }
 
     public BuscadorPostulante Listabuscadorpostulantecontr(String apellido, String nombre) {

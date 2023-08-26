@@ -1,12 +1,64 @@
 package Model;
 
+import java.sql.Timestamp;
+
 public class BuscadorPostulante {
 
-    private String postulanteid, postulante_cargo, postulante_estadocivil, postulante_parroquia, postulante_fechanacimiento, postulante_canton, postulante_tipo_dni, postulante_primernombre, postulante_segundonombre, postulante_primerapellido, postulante_segundoapellido, nombrescompleto, postulante_social, postulante_dni, postulante_primer_segundo_nombre, postulante_grupo, postulante_primer_segundo_apellido, postulante_direccion, postulante_provincia, postulante_nacionalidad, postulante_genero, postulante_correoelectronico, postulante_telefono, postulante_convencional;
-     public BuscadorPostulante() {
+    private String postulanteid;
+    private String postulante_cargo;
+    private String postulante_estadocivil;
+    private String postulante_parroquia;
+    private String postulante_fechanacimiento;
+    private String postulante_canton;
+    private String postulante_tipo_dni;
+    private String postulante_primernombre;
+    private String postulante_segundonombre;
+    private String postulante_primerapellido;
+    private String postulante_segundoapellido;
+    private String nombrescompleto;
+    private String postulante_social;
+    private String postulante_dni;
+    private String postulante_grupo;
+    private String postulante_direccion;
+    private String postulante_provincia;
+    private String postulante_nacionalidad;
+    private String postulante_genero;
+    private String postulante_correoelectronico;
+    private String postulante_telefono;
+    private String postulante_convencional;
+    private Timestamp created_at ;
+    private String postulante_estado;
+
+    public String getPostulante_estado() {
+        return postulante_estado;
     }
 
-    public BuscadorPostulante(String postulante_tipo_dni, String postulante_cargo, String postulante_estadocivil, String postulante_parroquia, String postulante_canton, String postulante_fechanacimiento, String postulanteid, String postulante_primernombre, String postulante_segundonombre, String postulante_primerapellido, String postulante_segundoapellido, String nombrescompletos, String postulante_dni, String postulante_primer_segundo_nombre, String postulante_primer_segundo_apellido, String postulante_direccion, String postulante_provincia, String postulante_nacionalidad, String postulante_genero, String postulante_correoelectronico, String postulante_social, String postulante_telefono, String postulante_convencional, String postulante_grupo) {
+    public void setPostulante_estado(String postulante_estado) {
+        this.postulante_estado = postulante_estado;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+    }
+    public BuscadorPostulante() {
+    }
+
+    public BuscadorPostulante(
+            String postulante_tipo_dni, String postulante_cargo, 
+            String postulante_estadocivil, String postulante_parroquia, 
+            String postulante_canton, String postulante_fechanacimiento, 
+            String postulanteid, String postulante_primernombre, 
+            String postulante_segundonombre, String postulante_primerapellido, 
+            String postulante_segundoapellido, String nombrescompletos, 
+            String postulante_dni, String postulante_direccion, 
+            String postulante_provincia, String postulante_nacionalidad, 
+            String postulante_genero, String postulante_correoelectronico, 
+            String postulante_social, String postulante_telefono, 
+            String postulante_convencional, String postulante_grupo) {
         this.postulante_cargo = postulante_cargo;
         this.postulante_estadocivil = postulante_estadocivil;
         this.postulante_fechanacimiento = postulante_fechanacimiento;
@@ -16,8 +68,6 @@ public class BuscadorPostulante {
         this.postulanteid = postulanteid;
         this.nombrescompleto = nombrescompletos;
         this.postulante_dni = postulante_dni;
-        this.postulante_primer_segundo_nombre =postulante_primer_segundo_nombre;
-        this.postulante_primer_segundo_apellido = postulante_primer_segundo_apellido;
         this.postulante_direccion = postulante_direccion;
         this.postulante_provincia = postulante_provincia;
         this.postulante_nacionalidad = postulante_nacionalidad;
@@ -32,7 +82,7 @@ public class BuscadorPostulante {
         this.postulante_primerapellido = postulante_primerapellido;
         this.postulante_segundoapellido = postulante_segundoapellido;
     }
- 
+
     public String getNombrescompleto() {
         return nombrescompleto;
     }
@@ -145,13 +195,6 @@ public class BuscadorPostulante {
         this.postulante_dni = postulante_dni;
     }
 
-    public String getPostulante_primer_segundo_nombre() {
-        return postulante_primer_segundo_nombre;
-    }
-
-    public void setPostulante_primer_segundo_nombre(String postulante_primer_segundo_nombre) {
-        this.postulante_primer_segundo_nombre = postulante_primer_segundo_nombre;
-    }
 
     public String getPostulante_grupo() {
         return postulante_grupo;
@@ -161,13 +204,6 @@ public class BuscadorPostulante {
         this.postulante_grupo = postulante_grupo;
     }
 
-    public String getPostulante_primer_segundo_apellido() {
-        return postulante_primer_segundo_apellido;
-    }
-
-    public void setPostulante_primer_segundo_apellido(String postulante_primer_segundo_apellido) {
-        this.postulante_primer_segundo_apellido = postulante_primer_segundo_apellido;
-    }
 
     public String getPostulante_direccion() {
         return postulante_direccion;
@@ -225,5 +261,4 @@ public class BuscadorPostulante {
         this.postulante_convencional = postulante_convencional;
     }
 
-    
 }

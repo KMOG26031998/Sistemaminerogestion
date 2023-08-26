@@ -1,5 +1,4 @@
 <%@page import="javax.swing.JOptionPane"%>
-<%@page import="javafx.scene.control.Alert"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>

@@ -4,7 +4,6 @@ $(document).ready(function () {
 
         window.location.href = "./Asistencia.jsp?user=" + getQueryVariableRe();
     });
-    usermedico();
 });
 
 function getQueryVariableRe() {

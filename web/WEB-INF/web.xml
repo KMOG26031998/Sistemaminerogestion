@@ -4,9 +4,17 @@
         <servlet-name>subirCurriculum</servlet-name>
         <servlet-class>Controller.subirCurriculum</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>consultaPostulantes</servlet-name>
+        <servlet-class>Controller.consultaPostulantes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>subirCurriculum</servlet-name>
         <url-pattern>/subirCurriculum</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>consultaPostulantes</servlet-name>
+        <url-pattern>/consultaPostulantes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

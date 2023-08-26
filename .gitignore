@@ -1,4 +1,4 @@
 /dist/
-/build
+/build/
 # NetBeans specific
-nbproject/private/
+nbproject/*

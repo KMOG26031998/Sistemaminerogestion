@@ -27,7 +27,7 @@
 
 .div-head-tittle h2:before
 {
-    content: 'REGISTRO DEL PERSONAL CONTRATADO';
+    content: 'REGISTRO DEL HOJA DE VIDA PERSONAL';
     font: 900;
     font-size: 1.5em;
     margin-left: 90px;
@@ -63,9 +63,8 @@
 .sec-main
 {    
     width: 100%;
-    margin-top: 40px;
+    margin-top: 2%;
     background: transparent;
-    height: 85.46762589928058vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,7 +128,6 @@
 .form1
 {
     width:100%;
-    height: 130.46762589928058vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,7 +138,6 @@
     width: 90%;
     height: auto; 
     padding-bottom: 25px;
-    margin-top:110%; 
     -webkit-box-shadow: 4px -9px 23px 0px rgba(0, 118, 83,1);
     -moz-box-shadow: 4px -9px 23px 0px rgba(0, 118, 83,1);
     box-shadow: 4px -9px 23px 0px rgba(0, 118, 83,1);
@@ -154,7 +151,6 @@
 .div-row-one, .div-row-two, .div-row-three, .div-row-four, .div-row-five, .div-row-six, .div-row-seven, .div-row-eigth, .div-row-nine, .div-row-ten, .div-row-eleven
 {    
     width: 90%;
-    height: 17.67vh;
     margin-left: 5%;
     margin-bottom: 5px;
     display: flex;
@@ -167,7 +163,7 @@
    
     width: 90% !important;
     margin-top: 6px !important;
-    height: 15vh;  
+    height: 10vh;  
     align-items: center;
     justify-content: center;
 }
@@ -184,7 +180,7 @@
     color: #000000;
     font-size: 1em; 
 }
-.inp-ced:focus, .inp-name:focus, .inp-lname:focus, .sel-dep-transf:focus, .sel-dep-to-transf:focus, .inp-cod:focus, .inp-edad:focus, .txt-ar-ob:focus, .btn-accept
+.inp-ced:focus, .inp-name:focus, .inp-lname:focus, .sel-dep-transf:focus, .sel-dep-to-transf:focus, .inp-cod:focus, .inp-edad:focus, .txt-ar-ob:focus
 {
     -webkit-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
     -moz-box-shadow: 1px 1px 7px 1px rgba(195,218,195,1);
@@ -247,18 +243,10 @@
 
 .btn-accept
 {
-    width: 125px;
-    margin-left: 50px;
-    height: 6.9vh;
-    border-radius: 50px;
-    border: none;
+  
     cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
     color: #ffffff;
     background-color: #007653;
-    outline-offset: 0;
-    outline: 0px;
 }
 
 .btn-accept:hover
