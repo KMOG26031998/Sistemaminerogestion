@@ -8,12 +8,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/clave.css" rel="stylesheet" type="text/css"/>  
-        <%-- <link rel="stylesheet" href="Principal/css/main.css" />
-       <link rel="stylesheet" href="css/CSS_Transferir.css">--%>
+        <link href="css/clave.css" rel="stylesheet" type="text/css"/>   
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+       <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA </title>  
     </head>
     <body>
@@ -76,21 +77,7 @@
                     </div>
                 </div>
             </section>
-
-            <%-- <section  class="form-register">
-                 INGRESAR NUEVA CLAVE: 
-                 <input class="controls" type="password" name="txtPassword" id="txtPassword" required="">
-                 <div class="input-group-append">
-                     <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                 </div>
-                 Ingrese su usuario:
-                 <input class="controls" type="text" name="Usuario" id="Usuario" required="">
-                 <br><br>
-                 Ingrese su cedula:
-                 <input class="controls" type="text" name="cedula" id="cedula" required="">
-                 <br><br>
-                 <input class="botons" type="submit" value="Cambiar clave">
-             </section>--%>
+ 
         </form>
         <script type="text/javascript">
             function mostrarPassword() {
@@ -125,9 +112,10 @@
             usuario = request.getParameter("Usuario");
             Cedula = request.getParameter("cedula");
             if (dni != null) {
-                ps = cn.getConecction().prepareStatement("update usuario set usuario_pass=md5('" + dni + "') where usuario_user='" + usuario + "' and usuario_dni = '" + Cedula + "'");
-                ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
+                ps = cn.getConecction().prepareStatement("update personal set personal_pass=md5('" + dni + "') where personal_user='" + usuario + "' and personal_dni = '" + Cedula + "'");
+                ps.executeUpdate();  
+                //request.setAttribute("msje","LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
+               // JOptionPane.showMessageDialog(null, "LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
                 response.sendRedirect("index.jsp");
 
             }

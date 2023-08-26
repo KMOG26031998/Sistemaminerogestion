@@ -4,6 +4,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/Asistencia.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA </title>
     </head>
     <body>
@@ -18,8 +20,8 @@
                 </tr>
                 <tr>
                     <td width="168">INGRESE CEDULA DEL PERSONAL:</td>
-                    <td width="415"><label for="cedulaCliente"></label> 
-                        <input type="text" name="cedulaCliente" id="cedulaCliente"></td>
+                    <td width="415"><label for="cedulacontratado"></label> 
+                        <input type="text" name="cedulacontratado" id="cedulaCliente"></td>
                 </tr>
                 <tr>
                     <td width="168">INGRESE SU CEDULA:</td>
@@ -33,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td><input type="submit" name="button" id="button" value="Generar Asistencia "></td>
+                    <td><input type="submit" name="button" id="button" value="Registrar la Asistencia "></td>
                 </tr>
             </table>
         </form>
