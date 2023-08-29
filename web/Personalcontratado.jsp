@@ -52,7 +52,7 @@
             </h2>
         </div>
 
-        <form id="form1" method="POST" action="AddPersonalContratado" enctype="multipart/form-data">
+        <form id="form1" method="POST" action="/Sistemaminerogestion/AddPersonalContratado" enctype="multipart/form-data">
             <section class="sec-main">
                 <div class="div-cont-main">
                     <div class="row justify-content-center pt-3"> 

@@ -1,4 +1,8 @@
 /dist/
 /build/
+build/web
+dist/
+dist
+build
 # NetBeans specific
 nbproject/*

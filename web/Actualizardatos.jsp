@@ -108,7 +108,7 @@
                                 <td><div class="div-cont-sel-dep-to-transf"  ><select class="sel-dep-to-transf"required=""  name="Ayuda" id="txt-lnameayu">
                                             <option value="No">No</option>
                                             <option value="Si" >Si</option>
-                                            
+
                                         </select></div></td>
                                 <td><div class="div-cont-lname" ><input type="text" id="nacionalidad" class="inp-lname" placeholder="nacionalidad" required=""  value="${usuario.postulante_nacionalidad}" name="nacionalidad" onkeyup="mayus(this);"/></div></td>
                                 <td><div class="div-cont-lname"><input type="text" id="txt-lnamedis" class="inp-lname" placeholder="Discapacidad"  name="discapacidad" onkeyup="mayus(this);"/></div></td>
@@ -128,7 +128,10 @@
                                         <input type="email" value="${usuario.postulante_correoelectronico == 'null' ? '' : usuario.postulante_correoelectronico}" id="txt-lnamecorreo" class="inp-lname" placeholder="correo electronico" required="" name="email"/>
                                     </div>
                                 </td>
-                                <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="submit" id="btn-action" class="btn-accept" value="Guardar"/> </div></td>
+                                <td>
+                                    <div style='margin-top: -20px !important;'class="div-cont-lname">
+                                        <input type="submit" id="btn-action" class="btn-accept" value="Guardar"/> 
+                                    </div></td>
                             </tr>
                         </tbody>
                     </table>          
