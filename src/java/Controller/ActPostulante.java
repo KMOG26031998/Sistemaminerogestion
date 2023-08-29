@@ -7,13 +7,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 @WebServlet(name = "ActPostulante", urlPatterns = {"/ActPostulante"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 10, // 10 MB
@@ -100,7 +94,6 @@ public class ActPostulante extends HttpServlet {
             ps.setString(17, email);
             ps.setString(18, cond);
             ps.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "ACTUALIZADO INFORMACION CORRECTAMENTE");
             response.sendRedirect("./Principal.jsp");
         } catch (IOException | SQLException e) {
             out.println("Exception: " + e);
@@ -122,24 +115,24 @@ public class ActPostulante extends HttpServlet {
             throws ServletException, IOException {
         BuscadorPostulante usuario = new BuscadorPostulante();
         String id = request.getParameter("id");
-        String tipo =request.getParameter("Tipo")!= null?request.getParameter("Tipo"):"";
+        String tipo = request.getParameter("Tipo") != null ? request.getParameter("Tipo") : "";
         Buscadorpostulantecontr buscar = new Buscadorpostulantecontr();
         if (tipo.equals("delete")) {
-             buscar.ActualizaEstadoPsotulante(id);
-              request.getRequestDispatcher("ListaPersonalModificar.jsp").forward(request, response);
-        }else if (tipo.equals("mod")){
-        usuario = buscar.ListabuscadorpostulanteId(id);
-        String fechaString = usuario.getPostulante_fechanacimiento(); // Cambia esto por la fecha real
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate localDate = LocalDate.parse(fechaString, formatter);
-        int año = localDate.getYear();
-        int mes = localDate.getMonthValue();
-        String mesFormateado = (mes < 10) ? String.format("0%d", mes) : String.valueOf(mes);
-        int dia = localDate.getDayOfMonth();
-        String diaFormateado = (dia < 10) ? String.format("0%d", dia) : String.valueOf(dia);
-        usuario.setPostulante_fechanacimiento(String.valueOf(año) + "-" + mesFormateado + "-" + diaFormateado);
-        request.setAttribute("usuario", usuario);
-        request.getRequestDispatcher("Actualizardatos.jsp").forward(request, response);
+            buscar.ActualizaEstadoPsotulante(id);
+            response.sendRedirect("ListaPersonalModificar.jsp");
+        } else if (tipo.equals("mod")) {
+            usuario = buscar.ListabuscadorpostulanteId(id);
+            String fechaString = usuario.getPostulante_fechanacimiento(); // Cambia esto por la fecha real
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate localDate = LocalDate.parse(fechaString, formatter);
+            int año = localDate.getYear();
+            int mes = localDate.getMonthValue();
+            String mesFormateado = (mes < 10) ? String.format("0%d", mes) : String.valueOf(mes);
+            int dia = localDate.getDayOfMonth();
+            String diaFormateado = (dia < 10) ? String.format("0%d", dia) : String.valueOf(dia);
+            usuario.setPostulante_fechanacimiento(String.valueOf(año) + "-" + mesFormateado + "-" + diaFormateado);
+            request.setAttribute("usuario", usuario);
+            request.getRequestDispatcher("Actualizardatos.jsp").forward(request, response);
         }
     }
 

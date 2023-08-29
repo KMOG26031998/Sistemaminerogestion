@@ -173,8 +173,7 @@ public class Buscadorpostulantecontr {
                     + "WHERE postulante_id= ?;";
             pst = cn.getConecction().prepareStatement(sql_command);
             pst.setInt(1, Integer.parseInt(id));
-            rs = pst.executeQuery();
-
+            pst.executeUpdate();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         } finally {

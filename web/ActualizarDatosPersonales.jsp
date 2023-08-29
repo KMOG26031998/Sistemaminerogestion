@@ -12,19 +12,19 @@
 <%@ page import = "BD.conexion"%>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">   
         <link href="css/ActualizarDatos.css" rel="stylesheet" type="text/css"/> 
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA </title>
     </head>
     <body> 
-       <header id="header" style=" background: #007653 !important;">
-        <a class="logo" href="Principal.jsp">
-            
-        </a>
-        <a class="logo" id="ulUserData" href="index.html"></a> 
-    </header>  
-        
+        <header id="header" style=" background: #007653 !important;">
+            <a class="logo" href="Principal.jsp">
+
+            </a>
+            <a class="logo" id="ulUserData" href="index.html"></a> 
+        </header>  
+
         <%
             HttpSession s = request.getSession();
             PreparedStatement pst;
@@ -37,13 +37,13 @@
             rs = pst.executeQuery();
             while (rs.next()) {
         %>         
-                                                 
-       <div class="div-head-tittle"><h2></h2></div>
+
+        <div class="div-head-tittle"><h2></h2></div>
         <form id="form1" autocomplete="off">
             <section class="sec-main">
                 <div class="div-cont-main">
-                     <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 25px;'>
-                      <thead >
+                    <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 25px;'>
+                        <thead >
                             <tr>
                                 <th>Numero de identificacion</th>
                                 <th>Primer Nombre</th>
@@ -96,7 +96,9 @@
                             <tr>
                                 <td><div class="div-cont-name"><input class="inp-lname" type="text" name="personal_direccion" id="personal_direccion"value="<%= rs.getString("personal_direccion")%>"required=""></div></td>
                                 <td><div class="div-cont-name"><input class="inp-lname" type="text" name="personal_correoelectronico" id="personalcorreoelectronico"value="<%= rs.getString("personal_correoelectronico")%>"required=""></div></td>
-                                <td><div class="div-cont-name" style='margin-top: -20px !important;'><input type="submit" id="btn-action" class="btn-accept" value="Guardar"/></div> </td>
+                                <td><div class="div-cont-name" style='margin-top: -20px !important;'>
+                                        <input type="submit" id="btn-action" class="btn-accept" value="Guardar"/>
+                                    </div> </td>
                             </tr>  
                         </tbody>                     
                     </table>
@@ -115,9 +117,9 @@
                     letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
                     especiales = [8, 37, 39, 46];
 
-                    tecla_especial = false
+                    tecla_especial = false;
                     for (var i in especiales) {
-                        if (key == especiales[i]) {
+                        if (key === especiales[i]) {
                             tecla_especial = true;
                             break;
                         }
@@ -152,7 +154,7 @@
         </form>
         <%}%>
         <%
-            String dni, Pnom, Snom, telefono, direccion, provincia, canton, parroquia, email,Papellido,Sapellido;
+            String dni, Pnom, Snom, telefono, direccion, provincia, canton, parroquia, email, Papellido, Sapellido;
             dni = request.getParameter("Cedula");
             Pnom = request.getParameter("PrimerNombre");
             Snom = request.getParameter("SegundoNombre");
@@ -171,8 +173,8 @@
                         + ",personal_canton='" + canton + "'"
                         + " ,personal_parroquia='" + parroquia + "'"
                         + ",personal_correoelectronico='" + email + "'"
-                                + ",personal_apellido_paterno='" + Papellido + "'"
-                                        + ",personal_apellido_materno='" + Sapellido + "'"
+                        + ",personal_apellido_paterno='" + Papellido + "'"
+                        + ",personal_apellido_materno='" + Sapellido + "'"
                         + " where personal_user='" + session.getAttribute("personal_user11") + "'");
                 ps.executeUpdate();
                 //JOptionPane.showMessageDialog(null, "INFORMACION ACTUALIZADA CORECTAMENTE");
