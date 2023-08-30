@@ -115,7 +115,7 @@
                 ps = cn.getConecction().prepareStatement("update personal set personal_pass=md5('" + dni + "') where personal_user='" + usuario + "' and personal_dni = '" + Cedula + "'");
                 ps.executeUpdate();  
                 //request.setAttribute("msje","LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
-               // JOptionPane.showMessageDialog(null, "LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
+               //JOptionPane.showMessageDialog(null, "LA CONTRASEÑA HA SIDO MODIFICADA CORRECTAMENTE.....");
                 response.sendRedirect("index.jsp");
 
             }

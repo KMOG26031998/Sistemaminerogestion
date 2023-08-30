@@ -27,8 +27,8 @@
                 <a class="logo" href="index.jsp">
                 </a>
                 <a class="logo" id="ulUserData" href="index.html"></a>
-                <nav>
-                    <a href="cambioclave.jsp" style="color:white" >Cambiar clave</a>
+                <nav> 
+                    <a href="cambioclaveLogin.jsp" style="color:white" >Cambiar clave</a>
                     <a href="cerrar.jsp" style="color:white" >Cerrar sesión</a>
                 </nav>
             </header>
@@ -60,7 +60,7 @@
                                 <a href="">
                                     <img alt="" src="svg/curriculum.svg" width="96" height="96">
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">HOJA DE VIDA</h3>
+                                <h3 style="color:#007653; font-weight: bold">HOJA DE VIDA - ENTREVISTA</h3>
                             </header>
                             <p>Ingresar o actualizar Hoja de vida de postulante</p>
                             <a href="Personalcontratado.jsp" class="button primary" style=" background: #007653 !important;" >Agregar Personal</a>
@@ -110,19 +110,17 @@
                             <a href="Reportes.jsp" class="button primary" style=" background: #007653 !important;">Ingresar</a>
                         </div>
                     </section>
-                    <!-- Sexto MODULO -->
-                 
-                    
+                    <!-- Sexto MODULO --> 
                         <section class="animadoagregarinformacion">
                         <div class="content">
                             <header>
                                 <a href="">
                                     <img src="img/task_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">Historial</h3>
+                                <h3 style="color:#007653; font-weight: bold">Historial del personal</h3>
                             </header>
-                            <p>Mostrar la información de las actividades del personal de trabajo</p>
-                            <a href="HistorialPagos.jsp" class="button primary"style=" background: #007653 !important;">Ver historial</a>
+                            <p>Mostrar la información del personal de trabajo</p>
+                            <a href="HistorialPersonalContratado.jsp" class="button primary"style=" background: #007653 !important;">Ver historial</a>
                         </div>
                     </section>
                 </div>

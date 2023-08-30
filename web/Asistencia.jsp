@@ -1,3 +1,5 @@
+<%@page import="java.sql.*"%>
+<%@page import="BD.conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,45 +9,44 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA</title>
     </head>
-    <body>
+    <body> 
         <header>
             <nav class="nav-tp"></nav>
         </header>      
         <div class="div-head-tittle"><h2></h2></div>
-  
-
         <form class="form1"> 
             <section class="sec-main">
                 <div class="div-cont-main">
+               
                     <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
                         <thead >
                             <tr>
-                                <th>Numero de identificacion</th>
-                                <th>Nombres del Postulante</th>
-                                <th>Nombres del Administrador</th>
+                                <th>Numero de identificacion</th> 
+                                <th>Nombres del Personal</th> 
+                                <th>Nombres del Administrador</th>  
                             </tr>
-                        </thead>
+                            </thead>
                         <tbody>
                             <tr>
-                                <td> <div class="div-cont-name"><input type="text"onkeypress='return validaNumericos(event)' id="txt-ced" class="inp-ced" placeholder="Numero de identificacion" name="Identificacion" onkeypress='return validaNumericosA(event)' maxlength="15"/></div></td>
-                                <td><div class="div-cont-name"><input type="text" disabled="true" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Postulante" name="nombres postulante" onkeypress="return soloLetras(event)"/></div></td>
+                                <td> <div class="div-cont-name"><input type="text"onkeypress='return validaNumericos(event)' id="txt-ced" class="inp-ced" placeholder="Numero de identificacion" name="Identificacion" onkeypress='return validaNumericosA(event)' maxlength="15"/> 
+                                        <input style='margin-left: 30px; ' type="button"  id="btn-buscarpostulante" class="btn-accept" value="Buscar"></div></td>
+                                <td><div class="div-cont-name"><input type="text" disabled="true" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Personal" name="nombres personal" onkeypress="return soloLetras(event)"/></div></td>
                                 <td><div class="div-cont-name"><input type="text" id="txt-nameme" class="inp-name" placeholder="Nombres del Administrador" name="nombres administrador" onkeypress="return soloLetras(event)"disabled="true"/></div></td>
                             </tr>
                         </tbody>
 
                         <thead >
                             <tr>                          
-                                <th>Asistencia</th>
+                                <th>Fecha de Asistencia</th>
                                 <th>Actividad/Observacion</th>
-                            </tr>
+                            </tr> 
                         </thead>
                         <tbody>
                             <tr>
-                                 <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Asistencia"required=""  name="Asistencia"/></div></td> 
-                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Observaciones" name="observaciones"/></div></td>
-                                <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="button" id="btn-action" class="btn-accept" value="+"> 
-                                        <input type="button"  id="btn-addasistencia" class="btn-accept" value="GUARDAR"></div></td> 
-
+                                 <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Fecha de Asistencia"required=""  name="FechadeAsistencia"/></div></td> 
+                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Actividad/Observacion" name="Actividad/Observacion"/></div></td>
+                                <td><div style='margin-top: -20px !important;'class="div-cont-lname">
+                                      <input type="button"  id="btn-addasistencia" class="btn-accept" value="GUARDAR"></div></td> 
                             </tr>
                         </tbody>                        
                     </table> 
@@ -55,18 +56,17 @@
                             <table id="tabla" class="table table-bordered">
                                 <thead>
                                     <tr> 
-
                                         <td>Nª</td>
-                                        <td>Asistencia</td>
-                                        <td>Actividad/Observacion</td>
+                                        <td>Fecha de Asistencia</td>
+                                        <td>Actividad / Observacion</td>
                                         <td>Acciones</td>
-
                                     </tr>
-                                </thead>
-                            </table>
+                                </thead> 
+                               
+                            </table> 
                         </div>
                     </div>
-                </div>
+                </div> 
             </section> 
         </form>
         <script>
@@ -119,7 +119,7 @@
                 }
                 return false;
             }
-        </script>
+        </script> 
     </body>
     <footer></footer>
     <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>   

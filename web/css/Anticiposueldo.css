@@ -27,7 +27,7 @@
 
 .div-head-tittle h2:before
 {
-    content: 'REGISTRO DE ASISTENCIA DEL PERSONAL';
+    content: 'REGISTRO DE ANTICIPO DEL SUELDO AL PERSONAL';
     font: 900;
     font-size: 1.5em;
     margin-left: 90px;
@@ -63,7 +63,7 @@
 .sec-main
 {    
     width: 100%; 
-        margin-top: -1550px !important;
+        margin-top: -1900px !important;
     background: transparent;
     height: 85.46762589928058vh;
     display: flex;

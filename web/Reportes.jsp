@@ -58,7 +58,7 @@
 
                             </header>
                             <p>Almacenar los anticipos de sueldo que el personal solicito</p>
-                            <a href="formularioReporteHistorialPostulantes.jsp" class="button primary" style=" background: #007653 !important;" href="" >Acceder</a>
+                            <a href="Anticiposueldo.jsp" class="button primary" style=" background: #007653 !important;" href="" >Acceder</a>
                         </div>
                     </section>
                     
@@ -67,13 +67,13 @@
                         <div class="content">
                             <header>
                                 <a href="">
-                                    <img src="img/device_manager_96px.png" alt=""/> 
+                                    <img src="img/name_tag_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">POSTULANTES ATENDIDOS</h3>
+                                <h3 style="color:#007653; font-weight: bold">POSTULANTES ENTREVISTADOS</h3>
 
                             </header>
-                            <p>Descargar en PDF las estadísticas de los postulantes atendidos</p>
-                            <a href="formularioReporteHistorialPostulantes.jsp" class="button primary" style=" background: #007653 !important;" href="" >Acceder</a>
+                            <p>Descargar en XLS listado de los postulantes entrevistados</p> 
+                            <a href="HistorialPersonalEntrevistado.jsp" class="button primary" style=" background: #007653 !important;" href="" >Acceder</a>
                         </div>
                     </section>
 
@@ -84,10 +84,23 @@
                                 <a href="" >
                                     <img src="img/business_building_96px.png" alt=""/> 
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Asistencias</h3>
+                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Historial de Asistencias</h3>
                             </header>
-                            <p>Descargar en PDF las asistencias</p>
-                            <a href="formularioReporteAsistencia.jsp" class="button primary" style=" background: #007653 !important;">Acceder</a>
+                            <p>Descargar en XLS las asistencias</p> 
+                            <a href="HistorialAsistencia.jsp" class="button primary" style=" background: #007653 !important;">Acceder</a>
+                        </div>
+                    </section>
+                     <!-- QUINTO MODULO -->
+                    <section class="animadoagregarinformacion">
+                        <div class="content">
+                            <header>
+                                <a href="" >
+                                    <img src="img/pos_terminal_96px.png" alt=""/> 
+                                    <span class="label"></span></a>
+                                <h3 style="color:#007653; font-weight: bold" class="textgrueso">Historial de Anticipos</h3>
+                            </header>
+                            <p>Descargar en XLS listado de anticipos dados al personal</p> 
+                            <a href="HistorialAnticipoSueldo.jsp" class="button primary" style=" background: #007653 !important;">Acceder</a>
                         </div>
                     </section>
                 </div>

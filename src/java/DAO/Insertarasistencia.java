@@ -1,13 +1,17 @@
 package DAO;
-
 import BD.conexion;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import Model.BuscadorPostulante;
+import Model.ConstructorPersonal;
 import Model.Constructorasistencia;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Insertarasistencia {
 
@@ -26,8 +30,7 @@ public class Insertarasistencia {
                     + "  from postulante  where postulante_dni = '" + cedula + "'";
             pst = cn.getConecction().prepareStatement(sql_command);
             rs = pst.executeQuery();
-            while (rs.next()) {
-                // newbuscar.setPostulanteid(String.valueOf(rs.getString("postulante_id")));
+            while (rs.next()) { 
                 newbuscar.setNombrescompleto(String.valueOf(rs.getString("nombres") + "-" + rs.getString("postulante_id")));
                 System.out.println(String.valueOf(rs.getString("postulante_id") + rs.getString("nombres")));
             }
@@ -51,7 +54,7 @@ public class Insertarasistencia {
         return newbuscar;
     }
 
-    public Constructorasistencia Listbuscarm(String user) {
+    /*public Constructorasistencia Listbuscarm(String user) {
         Constructorasistencia newbuscarm = new Constructorasistencia();
         pst = null;
         rs = null;
@@ -83,42 +86,69 @@ public class Insertarasistencia {
             }
         }
         return newbuscarm;
-    }
+    }*/
 
-    public int agregarasistenciaencabezado(String personalid, String postulanteid, String fecha) {
-        int aux = -1;
+    public void mostrarasistencia(int idasist, int idpersonal,int idpostulante,String fecha, String observacion) {
+
         try {
             conexion c = new conexion();
             Connection con = c.getConecction();
             if (con != null) {
                 Statement st;
                 st = con.createStatement();
-                ResultSet rs = st.executeQuery("select * from encabezado('" + personalid + "','" + postulanteid + "','" + fecha + "')");
-                rs.next();
-                aux = rs.getInt(1);
+                st.executeUpdate("select * from detalle_asistencia(" + idasist + "," + idpersonal + "," + idpostulante + ",'" + fecha + "','" + observacion + "')");
                 st.close();
             }
             c.isConected();
         } catch (SQLException e) {
-            System.err.println(e);
-            aux = -1;
         }
-        return aux;
     }
 
-    public void agregarasistenciadetalle(int idasist, String actividad, String observacion) {
+    public static boolean agregarAsistencia(Constructorasistencia asistencia) {
+    boolean agregado = false;
+    try {
+        conexion c = new conexion();
+        Connection con = c.getConecction();
 
-        try {
-            conexion c = new conexion();
-            Connection con = c.getConecction();
-            if (con != null) {
-                Statement st;
-                st = con.createStatement();
-                st.executeUpdate("select * from detalle_asistencia(" + idasist + ",'" + actividad + "','" + observacion + "')");
-                st.close();
+        if (con != null) {
+            String query = "INSERT INTO public.asistencia(\n"
+                    + "            personal_dni, postulante_id, \n"
+                    + "            fecha, \n"
+                    + "            actividadobservacion)\n"
+                    + "    VALUES (?, ?, ?, ?);";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, asistencia.getPersonalid());
+            ps.setInt(2, asistencia.getPostulanteid());
+            ps.setTimestamp(3,convertirAFechaTimestamp((asistencia.getFecha()))); 
+            ps.setString(4, asistencia.getObservacion()); 
+         
+            String persona=asistencia.toString();
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                agregado = true;
             }
+
+            ps.close();
             c.isConected();
-        } catch (SQLException e) {
+        }
+    } catch (SQLException e) {
+        System.out.println(e.getMessage().toString());
+        agregado = false;
+    }
+
+    return agregado;
+}
+    
+    private static Timestamp convertirAFechaTimestamp(String fechaString) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Date fecha = dateFormat.parse(fechaString);
+            return new Timestamp(fecha.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

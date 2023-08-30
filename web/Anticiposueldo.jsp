@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <link href="css/Asistencia.css" rel="stylesheet" type="text/css"/> 
+        <link href="css/Anticiposueldo.css" rel="stylesheet" type="text/css"/> 
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <title>SISTEMA DE GESTION DE PERSONAL - EMPRESA MINERA</title>
     </head>
@@ -21,29 +21,28 @@
                         <thead >
                             <tr>
                                 <th>Numero de identificacion</th>
-                                <th>Nombres del Postulante</th>
+                                <th>Nombres del Personal solicitante</th>
                                 <th>Nombres del Administrador</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td> <div class="div-cont-name"><input type="text"onkeypress='return validaNumericos(event)' id="txt-ced" class="inp-ced" placeholder="Numero de identificacion" name="Identificacion" onkeypress='return validaNumericosA(event)' maxlength="15"/></div></td>
+                                <td> <div class="div-cont-name"><input type="text"onkeypress='return validaNumericos(event)' id="txt-ced" class="inp-ced" placeholder="Numero de identificacion" name="Identificacion" onkeypress='return validaNumericosA(event)' maxlength="15"/> 
+                               <input style='margin-left: 30px; ' type="button"  id="btn-buscarpostulante" class="btn-accept" value="Buscar"></div></td>
                                 <td><div class="div-cont-name"><input type="text" disabled="true" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Postulante" name="nombres postulante" onkeypress="return soloLetras(event)"/></div></td>
                                 <td><div class="div-cont-name"><input type="text" id="txt-nameme" class="inp-name" placeholder="Nombres del Administrador" name="nombres administrador" onkeypress="return soloLetras(event)"disabled="true"/></div></td>
                             </tr>
                         </tbody>
 
                         <thead >
-                            <tr>                          
-                                <th>Asistencia</th>
-                                <th>Actividad/Observacion</th>
+                            <tr> 
+                                <th>Monto del anticipo</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                 <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Asistencia"required=""  name="Asistencia"/></div></td> 
-                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Observaciones" name="observaciones"/></div></td>
-                                <td><div style='margin-top: -20px !important;'class="div-cont-lname"><input type="button" id="btn-action" class="btn-accept" value="+"> 
+                            <tr> 
+                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Monto del anticipo" name="Montodelanticipo"/></div></td>
+                                <td><div style='margin-top: -20px !important;'class="div-cont-lname">
                                         <input type="button"  id="btn-addasistencia" class="btn-accept" value="GUARDAR"></div></td> 
 
                             </tr>
@@ -57,10 +56,9 @@
                                     <tr> 
 
                                         <td>Nª</td>
-                                        <td>Asistencia</td>
-                                        <td>Actividad/Observacion</td>
+                                        <td>Fecha de anticipo</td>
+                                        <td>Monto del anticipo</td>
                                         <td>Acciones</td>
-
                                     </tr>
                                 </thead>
                             </table>
@@ -122,8 +120,8 @@
         </script>
     </body>
     <footer></footer>
-    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>   
-    <script src="js/Asistencia.js" type="text/javascript"></script>
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>  
+    <script src="js/AnticipoSueldo.js" type="text/javascript"></script> 
     <script src="js/Buscadorpostulante.js" type="text/javascript"></script>
     <script src="js/newjavascript.js" type="text/javascript"></script>    
 </html>

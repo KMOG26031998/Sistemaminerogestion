@@ -13,18 +13,16 @@
         <link rel="stylesheet" type="text/css" href="datatables1/datatables.min.css"/>   
         <link rel="stylesheet"  type="text/css" href="datatables1/DataTables-1.10.18/css/dataTables.bootstrap4.min.css"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
-        <link href="css/Historial.css" rel="stylesheet" type="text/css"/>
+        <link href="css/HistorialPersonalEntrevistado.css" rel="stylesheet" type="text/css"/> 
     </head>
     <body> 
         <header id="header" style=" background: #007653 !important;">
             <a class="logo" href="Principal.jsp">
             </a>
-            <a class="logo" id="ulUserData" href="Principal.jsp"></a>
+            <a class="logo" id="ulUserData" href="Reportes.jsp"></a>
            <nav class="nav-tp"></nav>
     </header>     
     <div class="div-head-tittle"><h2></h2></div> 
-        
-   
         <!--Ejemplo tabla con DataTables-->
         <div class="container">
             <div class="row">
@@ -34,57 +32,68 @@
                             //CONECTANOD A LA BASE DE DATOS:
                             conexion con = new conexion();
                             PreparedStatement ps;
-                            //Emnpezamos Listando los Datos de la Tabla Usuario
+                            //Empezamos Listando los Datos de la Tabla Usuario
                             Statement smt;
                             ResultSet rs;
                             smt = con.getConecction().createStatement();
-                            rs = smt.executeQuery("select pa.postulante_dni as cedula ,pa.postulante_primer_nombre as primerNombre,pa.postulante_segundo_nombre as segundoNombre,pa.postulante_apellido_paterno as apeliidoPaterno,pa.postulante_apellido_materno as apellidoMaterno,pa.postulante_direccion as direccion,pa.postulante_provincia as provincia, pa.postulante_canton as canton, pa.postulante_parroquia as parroquia,pa.postulante_estado_civil as estadoCivil,me.estudiosecundario as Estudiosecundario, me.estudiotercernivel as Estudiotercernivel,me.estudiaactual as Estudiaactual,me.fechaingreso as Fechaingreso, me.motivoingreso as motivoingreso,me.observacion as observacion,me.cargararchivocv as archivo  from personalcontratado me inner join postulante pa on me.postulante_dni = pa.postulante_dni where me.personal_user ='" + session.getAttribute("personal_user11") + "' ");
+                            rs = smt.executeQuery("select p.postulante_dni as Cedula, concat(p.postulante_primer_nombre,' ',p.postulante_segundo_nombre,' ',p.postulante_apellido_paterno,' ',p.postulante_apellido_materno) as nombre_Postulante, concat(pr.personal_primer_nombre,' ',pr.personal_segundo_nombre,' ',pr.personal_apellido_paterno,' ',pr.personal_apellido_materno) as Personal_Entrevistador,p.created_at as Fecha_Entrevista,p.postulante_cargo as Cargo_de_Trabajo_Postulacion, p.postulante_provincia as Provincia,p.postulante_canton as Canton,p.postulante_parroquia as Parroquia,p.postulante_direccion as Direccion,p.postulante_estado_civil as Estado_Civil,p.postulante_correoelectronico as Correo_Electronico,p.postulante_telefono as Numero_Celular,p.postulante_convencional as Numero_Convencional,p.postulante_fnacimiento as Fecha_de_Nacimiento,p.postulante_grupo as Discapacidad,pc.experiencialaboral as Experiencia_Laboral,pc.refenciapersonal  as Referencia_Personal,pc.referencialaboral as Referencia_Laboral, pc.estudioprimario as Estudio_Primario,pc.estudiosecundario as Estudio_Segundario,pc.estudiotercernivel as Estudio_Tercer_Nivel,pc.estudiaactual as Estudio_Actual from postulante p inner join personalcontratado pc on p.postulante_dni=pc.postulante_dni inner join personal pr on pr.personal_user= pc.personal_user ");
                             if (rs.next()) {
-                                rs = smt.executeQuery("select pa.postulante_dni as cedula ,pa.postulante_primer_nombre as primerNombre,pa.postulante_segundo_nombre as segundoNombre,pa.postulante_apellido_paterno as apeliidoPaterno,pa.postulante_apellido_materno as apellidoMaterno,pa.postulante_direccion as direccion,pa.postulante_provincia as provincia, pa.postulante_canton as canton, pa.postulante_parroquia as parroquia,pa.postulante_estado_civil as estadoCivil,me.estudiosecundario as Estudiosecundario, me.estudiotercernivel as Estudiotercernivel,me.estudiaactual as Estudiaactual,me.fechaingreso as Fechaingreso, me.motivoingreso as motivoingreso,me.observacion as observacion,me.cargararchivocv as archivo  from personalcontratado me inner join postulante pa on me.postulante_dni = pa.postulante_dni where me.personal_user ='" + session.getAttribute("personal_user11") + "'");
+                                rs = smt.executeQuery("select p.postulante_dni as Cedula, concat(p.postulante_primer_nombre,' ',p.postulante_segundo_nombre,' ',p.postulante_apellido_paterno,' ',p.postulante_apellido_materno) as nombre_Postulante, concat(pr.personal_primer_nombre,' ',pr.personal_segundo_nombre,' ',pr.personal_apellido_paterno,' ',pr.personal_apellido_materno) as Personal_Entrevistador,p.created_at as Fecha_Entrevista,p.postulante_cargo as Cargo_de_Trabajo_Postulacion, p.postulante_provincia as Provincia,p.postulante_canton as Canton,p.postulante_parroquia as Parroquia,p.postulante_direccion as Direccion,p.postulante_estado_civil as Estado_Civil,p.postulante_correoelectronico as Correo_Electronico,p.postulante_telefono as Numero_Celular,p.postulante_convencional as Numero_Convencional,p.postulante_fnacimiento as Fecha_de_Nacimiento,p.postulante_grupo as Discapacidad,pc.experiencialaboral as Experiencia_Laboral,pc.refenciapersonal  as Referencia_Personal,pc.referencialaboral as Referencia_Laboral, pc.estudioprimario as Estudio_Primario,pc.estudiosecundario as Estudio_Segundario,pc.estudiotercernivel as Estudio_Tercer_Nivel,pc.estudiaactual as Estudio_Actual from postulante p inner join personalcontratado pc on p.postulante_dni=pc.postulante_dni inner join personal pr on pr.personal_user= pc.personal_user ");
                         %>
                         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%"style="margin-top:70px ;">
                             <thead >
                                 <tr>
                                     <th>Cedula</th>
-                                    <th>Fecha de anticipo</th>
-                                    <th>motivo de anticipo</th>
-                                    <th>observacion</th>
-                                    <th>primerNombre</th>
-                                    <th>segundoNombre</th>
-                                    <th>apeliidoPaterno</th>
-                                    <th>apellidoMaterno</th>
-                                    <th>direccion</th>
-                                    <th>provincia</th>
-                                    <th>canton</th>
-                                    <th>parroquia</th>
-                                    <th>estadoCivil</th>
-                                    <th>Estudiosecundario</th>
-                                    <th>Estudiotercernivel</th>
-                                    <th>Estudiaactual</th>
-                                    <th>Archivo</th>
+                                    <th>Nombre del Postulante</th>
+                                    <th>Nombre del Entrevistador</th>
+                                    <th>Fecha Entrevista</th>
+                                    <th>Cargo de Trabajo Postulacion</th>
+                                    <th>Provincia</th>
+                                    <th>Canton</th>
+                                    <th>Parroquia</th>
+                                    <th>Direccion</th>
+                                    <th>Estado Civil</th>
+                                    <th>Correo Electronico</th>
+                                    <th>Numero Celular</th>
+                                    <th>Numero Convencional</th>
+                                    <th>Fecha de Nacimiento</th>
+                                    <th>Discapacidad</th>
+                                    <th>Experiencia Laboral</th> 
+                                    <th>Referencia Personal</th> 
+                                    <th>Referencia Laboral</th>  
+                                    <th>Estudio Primario</th> 
+                                    <th>Estudio Segundario</th>
+                                    <th>Estudio Tercer Nivel</th>
+                                    <th>Estudio Actual</th> 
+                                     <!-- <th>Sueldo</th>  --> 
                                 </tr>
                             </thead>
                             <tbody>
-                                <%                    while (rs.next()) {
+                                <%  while (rs.next()) {
                                 %>
                                 <tr>
-                                    <td><%= rs.getString("cedula")%></td>
-                                    <td><%= rs.getString("Fechaingreso")%></td>
-                                    <td><%= rs.getString("motivoingreso")%></td>
-                                    <td><%= rs.getString("observacion")%></td>
-                                    <td><%= rs.getString("primerNombre")%></td>
-                                    <td><%= rs.getString("segundoNombre")%></td>
-                                    <td><%= rs.getString("apeliidoPaterno")%></td>
-                                    <td><%= rs.getString("apellidoMaterno")%></td>
-                                    <td><%= rs.getString("direccion")%></td>
-                                    <td><%= rs.getString("provincia")%></td>
-                                    <td><%= rs.getString("canton")%></td>
-                                    <td><%= rs.getString("parroquia")%></td>
-                                    <td><%= rs.getString("estadoCivil")%></td>
-                                    <td><%= rs.getString("Estudiosecundario")%></td>
-                                    <td><%= rs.getString("Estudiotercernivel")%></td>
-                                    <td><%= rs.getString("Estudiaactual")%></td>
-                                    <td><a href="DownloadServlet?fileName=<%=rs.getString("archivo")%>">Download</a></td>
+                                    <td><%= rs.getString("Cedula")%></td>
+                                    <td><%= rs.getString("Nombre_Postulante")%></td>
+                                    <td><%= rs.getString("Personal_Entrevistador")%></td>
+                                    <td><%= rs.getString("Fecha_Entrevista")%></td>
+                                    <td><%= rs.getString("Cargo_de_Trabajo_Postulacion")%></td>
+                                    <td><%= rs.getString("Provincia")%></td>
+                                    <td><%= rs.getString("Canton")%></td>
+                                    <td><%= rs.getString("Parroquia")%></td>
+                                    <td><%= rs.getString("Direccion")%></td>
+                                    <td><%= rs.getString("Estado_Civil")%></td>
+                                    <td><%= rs.getString("Correo_Electronico")%></td>
+                                    <td><%= rs.getString("Numero_Celular")%></td>
+                                    <td><%= rs.getString("Numero_Convencional")%></td>
+                                    <td><%= rs.getString("Fecha_de_Nacimiento")%></td>
+                                    <td><%= rs.getString("Discapacidad")%></td>  
+                                   <td><%= rs.getString("Experiencia_Laboral")%></td> 
+                                   <td><%= rs.getString("Referencia_Personal")%></td> 
+                                   <td><%= rs.getString("Referencia_Laboral")%></td> 
+                                   <td><%= rs.getString("Estudio_Primario")%></td> 
+                                   <td><%= rs.getString("Estudio_Segundario")%></td> 
+                                   <td><%= rs.getString("Estudio_Tercer_Nivel")%></td> 
+                                   <td><%= rs.getString("Estudio_Actual")%></td> 
                                 </tr>
                                 <%}%>
                             </tbody>        

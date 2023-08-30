@@ -27,9 +27,28 @@
 
 .div-head-tittle h2:before
 {
-    content: 'HISTORIAL DE PAGOS Y ANTICIPOS';
+    content: 'HISTORIAL DE LA ASISTENCIA DEL PERSONAL';
     font: 900;
     font-size: 1.5em;
     margin-left: 90px;
     color: #ffffff;
+}
+header{
+    background: #8E2DE2;
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);
+    background: linear-gradient(to right, #4A00E0, #8E2DE2);
+}
+
+/*estilos para la tabla*/
+table th {
+    background-color: #337ab7 !important;
+    color: white;
+}
+table>tbody>tr>td {
+    vertical-align: middle !important;
+}
+
+/*para alinear los botones y cuadro de busqueda*/
+.btn-group, .btn-group-vertical {
+    position: absolute !important;
 }

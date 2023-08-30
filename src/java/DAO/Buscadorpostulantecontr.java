@@ -3,6 +3,7 @@ package DAO;
 import BD.conexion;
 import java.sql.SQLException;
 import Model.BuscadorPostulante;
+import Model.BuscadorPostulantePersonal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -248,4 +249,50 @@ public class Buscadorpostulantecontr {
         }
         return newbuscarp;
     }
+
+    public BuscadorPostulantePersonal  asistencia(String cedula) {
+        BuscadorPostulantePersonal newbuscarp = null;
+        pst = null;
+        rs = null;
+        try {
+
+            sql_command = "select pos.postulante_id,p.personal_id,concat(pos.postulante_primer_nombre,' ',pos.postulante_apellido_paterno) as Postulante,\n" +
+            "concat (p.personal_primer_nombre,' ',p.personal_apellido_paterno) as Personal, p.personal_dni\n" +
+            "from personalcontratado pc, postulante  pos, personal p where pos.postulante_dni = '"+cedula+"' \n" +
+            "and pos.postulante_dni = pc.postulante_dni and pc.personal_user = p.personal_user ";
+            pst = cn.getConecction().prepareStatement(sql_command);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                newbuscarp = new BuscadorPostulantePersonal(); 
+
+                newbuscarp.setPostulante_id(Integer.valueOf(rs.getString("postulante_id")));
+                newbuscarp.setPersonal_id(Integer.valueOf(rs.getString("personal_id")));
+                newbuscarp.setPostulante(String.valueOf(rs.getString("postulante"))); 
+                newbuscarp.setPersonal(String.valueOf(rs.getString("personal")));
+                newbuscarp.setPersonal_dni(Integer.valueOf(rs.getString("personal_dni")));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            try {
+                if (cn.isConected()) {
+                    cn.getConecction().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return newbuscarp;
+    } 
+
+
+
+
+
 }
