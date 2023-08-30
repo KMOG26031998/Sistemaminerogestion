@@ -14,7 +14,7 @@
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        
+
     </head>
     <body>
         <div class="div-head-tittle">
@@ -67,82 +67,84 @@
     </body>
     <script type="text/javascript">
         $(document).ready(function () {
-        // Datos simulados para la tabla (reemplaza esto con tu lógica de obtención de datos)
-        var paginaActual = 1;
-        var personas = '';
+            // Datos simulados para la tabla (reemplaza esto con tu lógica de obtención de datos)
+            var paginaActual = 1;
+            var personas = '';
 
 
-        var elementosPorPagina = 5;
-        var totalPaginas = Math.ceil(personas.length / elementosPorPagina);
+            var elementosPorPagina = 5;
+            var totalPaginas = Math.ceil(personas.length / elementosPorPagina);
 
 
-        function mostrarPersonasEnPagina(pagina) {
-            var inicio = (pagina - 1) * elementosPorPagina;
-            var fin = inicio + elementosPorPagina;
-            var html = "";
-            for (var i = inicio; i < fin && i < personas.length; i++) {
-                html += "<tr><td>" + personas[i].postulanteid + "</td><td>" + personas[i].postulante_primernombre + " " + personas[i].postulante_segundonombre
-                        + "</td><td>" + personas[i].postulante_primerapellido + " " + personas[i].postulante_segundoapellido
-                        + "</td><td>" + personas[i].postulante_dni + "</td><td>" + personas[i].postulante_nacionalidad + "</td><td>\n\
-                           <a href=\"#\" class=\"btn btn-info btn-sm\">Contratar</a></td></tr>";
+            function mostrarPersonasEnPagina(pagina) {
+                var inicio = (pagina - 1) * elementosPorPagina;
+                var fin = inicio + elementosPorPagina;
+                var html = "";
+                for (var i = inicio; i < fin && i < personas.length; i++) {
+                    html += "<tr><td>" + personas[i].postulanteid + "</td><td>" + personas[i].postulante_primernombre + " " + personas[i].postulante_segundonombre
+                            + "</td><td>" + personas[i].postulante_primerapellido + " " + personas[i].postulante_segundoapellido
+                            + "</td><td>" + personas[i].postulante_dni + "</td><td>" + personas[i].postulante_nacionalidad;
+                    if (!personas[i].contrato) {
+                        html += "</td><td><a href=\"AddContrato?id=" + personas[i].postulanteid + "\" class=\"btn btn-info\">Contratar</a></td></tr>";
+                    }else{
+                        html += "</td><td><a href=\"ServAsistencia?id=" + personas[i].postulanteid + "\" class=\"btn btn-primary\">Asistencia</a></td></tr>";
+                    }
+                }
+                $("#tabla-personas").html(html);
             }
 
-            $("#tabla-personas").html(html);
-        }
+            function mostrarPaginacion() {
+                var html = "";
 
-        function mostrarPaginacion() {
-            var html = "";
-
-            for (var i = 1; i <= totalPaginas; i++) {
-                html += '<li class="page-item ' + (i === paginaActual ? "active" : "") + '"><a class="page-link" href="#">' + i + '</a></li>';
-            }
-
-            $("#paginacion ul").html(html);
-
-            $("#paginacion a").click(function () {
-                paginaActual = parseInt($(this).text());
-                mostrarPersonasEnPagina(paginaActual);
-                mostrarPaginacion();
-            });
-        }
-
-        $(document).on("click", ".eliminar-persona", function () {
-            var personaId = $(this).attr("data-id");
-
-            if (window.confirm("¿Estás seguro de que deseas eliminar esta persona?")) {
-                personas.splice(personaId, 1);
-                totalPaginas = Math.ceil(personas.length / elementosPorPagina);
-
-                if (paginaActual > totalPaginas) {
-                    paginaActual = totalPaginas;
+                for (var i = 1; i <= totalPaginas; i++) {
+                    html += '<li class="page-item ' + (i === paginaActual ? "active" : "") + '"><a class="page-link" href="#">' + i + '</a></li>';
                 }
 
-                mostrarPersonasEnPagina(paginaActual);
-                mostrarPaginacion();
-            }
-        });
-        
-        function llenaTabla() {
-            $.ajax({
-                url: "consultaPostulantes", // Reemplaza con la URL de tu servlet
-                method: "POST",
-                dataType: "text",
-                success: function (data) {
-                    personas = JSON.parse(data);
-                    console.log(data);
+                $("#paginacion ul").html(html);
+
+                $("#paginacion a").click(function () {
+                    paginaActual = parseInt($(this).text());
                     mostrarPersonasEnPagina(paginaActual);
                     mostrarPaginacion();
-                },
-                error: function (xhr, status, error) {
-                    var errorMessage = "Error en la solicitud: " + xhr.status + " " + xhr.statusText;
-                    $("#resultado").text(errorMessage);
+                });
+            }
+
+            $(document).on("click", ".eliminar-persona", function () {
+                var personaId = $(this).attr("data-id");
+
+                if (window.confirm("¿Estás seguro de que deseas eliminar esta persona?")) {
+                    personas.splice(personaId, 1);
+                    totalPaginas = Math.ceil(personas.length / elementosPorPagina);
+
+                    if (paginaActual > totalPaginas) {
+                        paginaActual = totalPaginas;
+                    }
+
+                    mostrarPersonasEnPagina(paginaActual);
+                    mostrarPaginacion();
                 }
             });
-        }
-        $("#botonCargar").click(llenaTabla);
-        llenaTabla();
-        mostrarPersonasEnPagina(paginaActual);
-        mostrarPaginacion();
-    });
+
+            function llenaTabla() {
+                $.ajax({
+                    url: "consultaPostulantes", // Reemplaza con la URL de tu servlet
+                    method: "POST",
+                    dataType: "text",
+                    success: function (data) {
+                        personas = JSON.parse(data);
+                        mostrarPersonasEnPagina(paginaActual);
+                        mostrarPaginacion();
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = "Error en la solicitud: " + xhr.status + " " + xhr.statusText;
+                        $("#resultado").text(errorMessage);
+                    }
+                });
+            }
+            $("#botonCargar").click(llenaTabla);
+            llenaTabla();
+            mostrarPersonasEnPagina(paginaActual);
+            mostrarPaginacion();
+        });
     </script>
 </html>

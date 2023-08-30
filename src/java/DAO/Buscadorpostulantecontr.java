@@ -25,11 +25,14 @@ public class Buscadorpostulantecontr {
         rs = null;
         try {
 
-            sql_command = "select * from postulante p where p.postulante_id  =" + id;
+            
+            sql_command = "select *,(select c.contrato_id  from public.contrato c where c.fk_postulante_id ="+id+") as contrato "
+                    + "from postulante p where p.postulante_id =" + id;
             pst = cn.getConecction().prepareStatement(sql_command);
             rs = pst.executeQuery();
             while (rs.next()) {
                 newbuscarp = new BuscadorPostulante();
+                newbuscarp.setPostulanteid(id);
                 newbuscarp.setPostulante_dni(String.valueOf(rs.getString("postulante_dni")));
                 newbuscarp.setPostulante_tipo_dni(String.valueOf(rs.getString("postulante_tipo_dni")));
                 newbuscarp.setPostulante_primernombre(String.valueOf(rs.getString("postulante_primer_nombre")));
@@ -50,6 +53,7 @@ public class Buscadorpostulantecontr {
                 newbuscarp.setPostulante_grupo(String.valueOf(rs.getString("postulante_grupo")));
                 newbuscarp.setPostulante_cargo(String.valueOf(rs.getString("postulante_cargo")));
                 newbuscarp.setPostulante_correoelectronico(String.valueOf(rs.getString("postulante_correoelectronico")));
+                newbuscarp.setContrato(rs.getString("contrato"));
 
             }
         } catch (SQLException ex) {
@@ -126,7 +130,7 @@ public class Buscadorpostulantecontr {
 
     public List<BuscadorPostulante> obtenerListaPostulantes() {
         List<BuscadorPostulante> listaPostulantes = new ArrayList<>();
-        String query = "SELECT * FROM postulante p where p.postulante_estado in ('Activo','ACTIVO')  ";
+        String query = "SELECT *,(select c.contrato_id  from public.contrato c where c.fk_postulante_id =p.postulante_id) as contrato FROM postulante p where p.postulante_estado in ('Activo','ACTIVO')  ";
         try {
             pst = cn.getConecction().prepareStatement(query);
             rs = pst.executeQuery();
@@ -155,6 +159,7 @@ public class Buscadorpostulantecontr {
                 postulante.setPostulante_convencional(rs.getString("postulante_convencional"));
                 postulante.setPostulante_cargo(rs.getString("postulante_cargo"));
                 postulante.setPostulante_correoelectronico(rs.getString("postulante_correoelectronico"));
+                postulante.setContrato(rs.getString("contrato"));
                 listaPostulantes.add(postulante);
             }
 
