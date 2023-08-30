@@ -12,6 +12,10 @@
         <servlet-name>BckPersonal</servlet-name>
         <servlet-class>Controller.BckPersonal</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Asistencia</servlet-name>
+        <servlet-class>Controller.ServAsistencia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>subirCurriculum</servlet-name>
         <url-pattern>/subirCurriculum</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>BckPersonal</servlet-name>
         <url-pattern>/BckPersonal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Asistencia</servlet-name>
+        <url-pattern>/ServAsistencia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

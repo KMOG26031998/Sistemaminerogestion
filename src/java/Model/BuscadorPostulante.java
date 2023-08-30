@@ -28,6 +28,15 @@ public class BuscadorPostulante {
     private String postulante_convencional;
     private Timestamp created_at ;
     private String postulante_estado;
+    private String contrato;
+
+    public String getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(String contrato) {
+        this.contrato = contrato;
+    }
 
     public String getPostulante_estado() {
         return postulante_estado;
