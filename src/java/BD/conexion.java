@@ -8,9 +8,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class conexion {
   
-    public static String url = "jdbc:postgresql://localhost:5432/sistemaminero";
+    public static String url = "jdbc:postgresql://localhost:5432/Sistemaminero";
     public static String usuario = "postgres";
-    public static String clave = "luis1706";
+    public static String clave = "12345";
     PreparedStatement ps = null;
     Statement st;
     private Connection conecction;

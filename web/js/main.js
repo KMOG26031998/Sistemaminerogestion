@@ -2,7 +2,7 @@ $(document).ready(function()
 {
    $("#PaginaMedi").click(function()
    {
-        window.location.href = "./Medicinageneral.jsp?user="+document.getElementById("usuario").innerHTML;
+        window.location.href = "./Asistencia.jsp?user="+document.getElementById("usuario").innerHTML;
        
    }); 
 });

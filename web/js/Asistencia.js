@@ -1,11 +1,46 @@
 $(document).ready(function () {
-    $('#btn-action').click(function () {
+    $('#btn-addasistencia').click(function () {
         validar();
     });
 });
 
 var filaMetodo;
-var aumento = 0;
+var aumento = 0; 
+
+$(function () {
+    $('#btn-buscarpostulante').click(function (e) {
+        enlistarasistencia();
+    });
+    const enlistarasistencia = () => {
+
+        var dato = {
+            cedula: document.getElementById("txt-ced").value 
+        };
+        console.log(dato);
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "./Addasistencia",
+            data: dato,
+            dataType: 'json',
+            error: function (request, status, error)
+            { 
+                  console.log(request, status, error);
+            },
+            success: function (data)
+            {
+                console.log(data);
+                $("#txt-namep").val(data.postulante); 
+                $("#txt-nameme").val(data.personal); 
+                
+               postulante_id=data.postulante_id;
+               personal_id=data.personal_id;
+               personal_dni=data.personal_dni;
+                
+            }
+        });
+    };
+});
 
 
 function validar()
@@ -28,7 +63,7 @@ function tabla(parametroUno, parametroDos)
 }
 function limpiar()
 {
-    document.getElementById("txt-lnamem").value = "";
+    document.getElementById("txt-lname").value = "";
     document.getElementById("txt-namei").value = "";
 }
 function eliminar(id)
@@ -39,12 +74,7 @@ function eliminar(id)
         {
             var firstRow = document.getElementById("tabla");
             firstRow.deleteRow(i);
-            /* aumento--;
-             if (document.getElementById("tabla").rows.length === 0)
-             {
-             aumento = 0;
-             alert("de nuevo");
-             }*/
+            
         }
     }
 }
@@ -55,7 +85,7 @@ function modificar(id)
     {
         if (document.getElementById("tabla").rows[i].cells[0].innerHTML.trim() === id.toString())
         {
-            document.getElementById("txt-lnamem").value = document.getElementById("tabla").rows[i].cells[1].innerHTML;
+            document.getElementById("txt-lname").value = document.getElementById("tabla").rows[i].cells[1].innerHTML;
             document.getElementById("txt-namei").value = document.getElementById("tabla").rows[i].cells[2].innerHTML;
             eliminar(id);
         }

@@ -14,44 +14,41 @@ function getQueryVariableRe() {
         console.log(pair[1].toString());
         return pair[1].toString();
     }
-
 }
+var postulante_id;
+var personal_id;
+var personal_dni;
 
 $(function () {
-    $('#btn-actionbusc').click(function (e) {
-        buscador();
+    $('#btn-buscarpostulante').click(function (e) {
+        buscadorpostulantenew();
     });
-    const buscador = () => {
+    const buscadorpostulantenew = () => {
 
         var dato = {
-            apellido: document.getElementById("txt-lnamesega").value,
-            nombre: document.getElementById("txt-namea").value
+            cedula: document.getElementById("txt-ced").value 
         };
+        console.log(dato);
         $.ajax({
             cache: false,
             type: "POST",
-            url: "Controllerbuscarnew",
+            url: "./BckPersonal",
             data: dato,
             dataType: 'json',
             error: function (request, status, error)
-            {
-                alert(request, status, error);
+            { 
+                  console.log(request, status, error);
             },
             success: function (data)
             {
                 console.log(data);
-                $("#txt-cedi").val(data.postulante_dni);
-                $("#txt-namen").val(data.postulante_primer_segundo_nombre);
-                $("#txt-lnamea").val(data.postulante_primer_segundo_apellido);
-                $("#txt-namef").val(data.postulante_grupo);
-                $("#txt-lnamet").val(data.postulante_convencional);
-                $("#txt-cel").val(data.postulante_telefono);
-                $("#txt-provin").val(data.postulante_provincia);
-                $("#txt-direccion").val(data.postulante_direccion);
-                $("#txt-genero").val(data.postulante_genero);
-                $("#txt-ayudaeconomica").val(data.postulante_ayudasocial);
-                $("#txt-nacionalidad").val(data.postulante_nacionalidad);
-                $("#txt-tiposangre").val(data.postulante_correoelectronico);
+                $("#txt-namep").val(data.postulante); 
+                $("#txt-nameme").val(data.personal); 
+                
+               postulante_id=data.postulante_id;
+               personal_id=data.personal_id;
+               personal_dni=data.personal_dni;
+                
             }
         });
     };
@@ -105,7 +102,7 @@ function buscador1() {
     $.ajax({
         cache: false,
         type: "POST",
-        url: "./NewServle",
+        url: "./BckPersonal",
         data: {cedula: cedu, op: "1"},
         dataType: 'json',
         error: function (request, status, error)
@@ -121,8 +118,6 @@ function buscador1() {
         }
 
     });
-
-
 }
 function validaNumericosA(event)
 {
@@ -153,8 +148,7 @@ function useradministrador() {
         },
         success: function (data)
         {
-            console.log(data.nombrespersonal.toString());
-            // $("#txt-namep").val(data.nombrescompletos);
+            console.log(data.nombrespersonal.toString()); 
             var cadena = data.nombrepersonal.split("-");
             document.getElementById("txt-nameme").value = cadena[0];
             idepersonal = cadena[1];
@@ -196,6 +190,3 @@ function limpiar1()
 {
     document.getElementById("tabla").innerHTML = "";
 }
-
-
- 

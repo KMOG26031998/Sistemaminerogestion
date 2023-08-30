@@ -2,19 +2,30 @@ package Model;
 
 public class Constructorasistencia {
 
-    private int personalid, postulanteid;
-    private String nombrespersonal,fecha, id_asistencia, asistencia, observacion;
+    private int personalid, postulanteid, id_asistencia;
+    private String fecha,observacion;
 
     public Constructorasistencia() {
     }
 
-    public Constructorasistencia(int personalid, int postulanteid, String nombrespersonal,String fecha, String asistencia, String observacion) {
+    public Constructorasistencia(int id_asistencia,int personalid, int postulanteid,String fecha,String observacion) {
         this.personalid = personalid;
         this.postulanteid = postulanteid;
         this.fecha = fecha;
-        this.asistencia = asistencia;
         this.observacion = observacion;
-        this.nombrespersonal = nombrespersonal;
+        this.id_asistencia = id_asistencia;
+    }
+
+    public Constructorasistencia(String personalid, String postulanteid, String Fecha, String actividadobservacion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int getId_asistencia() {
+        return id_asistencia;
+    }
+
+    public void setId_asistencia(int id_asistencia) {
+        this.id_asistencia = id_asistencia;
     }
 
     public int getPersonalid() {
@@ -31,15 +42,7 @@ public class Constructorasistencia {
 
     public void setPostulanteid(int postulanteid) {
         this.postulanteid = postulanteid;
-    }
-
-    public String getNombrespersonal() {
-        return nombrespersonal;
-    }
-
-    public void setNombrespersonal(String nombrespersonal) {
-        this.nombrespersonal = nombrespersonal;
-    }
+    } 
 
     public String getFecha() {
         return fecha;
@@ -47,23 +50,7 @@ public class Constructorasistencia {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-
-    public String getId_asistencia() {
-        return id_asistencia;
-    }
-
-    public void setId_asistencia(String id_asistencia) {
-        this.id_asistencia = id_asistencia;
-    }
-
-    public String getAsistencia() {
-        return asistencia;
-    }
-
-    public void setAsistencia(String asistencia) {
-        this.asistencia = asistencia;
-    }
+    } 
 
     public String getObservacion() {
         return observacion;

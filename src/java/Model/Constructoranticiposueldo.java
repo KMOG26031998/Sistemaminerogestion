@@ -1,20 +1,19 @@
 package Model;
 
-public class Constructorasistencia {
+import java.sql.Timestamp;
+
+public class Constructoranticiposueldo {
 
     private int personalid, postulanteid;
-    private String nombrespersonal,fecha, id_asistencia, asistencia, observacion;
-
-    public Constructorasistencia() {
+    private int montoanticipado;
+    private Timestamp created_at ;
+    public Constructoranticiposueldo() {
     }
 
-    public Constructorasistencia(int personalid, int postulanteid, String nombrespersonal,String fecha, String asistencia, String observacion) {
+    public Constructoranticiposueldo(int montoanticipado,int personalid, int postulanteid ) {
         this.personalid = personalid;
-        this.postulanteid = postulanteid;
-        this.fecha = fecha;
-        this.asistencia = asistencia;
-        this.observacion = observacion;
-        this.nombrespersonal = nombrespersonal;
+        this.postulanteid = postulanteid; 
+ this.montoanticipado = montoanticipado; 
     }
 
     public int getPersonalid() {
@@ -33,44 +32,21 @@ public class Constructorasistencia {
         this.postulanteid = postulanteid;
     }
 
-    public String getNombrespersonal() {
-        return nombrespersonal;
+    public int getMontoanticipado() {
+        return montoanticipado;
     }
 
-    public void setNombrespersonal(String nombrespersonal) {
-        this.nombrespersonal = nombrespersonal;
+    public void setMontoanticipado(int montoanticipado) {
+        this.montoanticipado = montoanticipado;
     }
 
-    public String getFecha() {
-        return fecha;
+    public Timestamp getCreated_at() {
+        return created_at;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
     }
 
-    public String getId_asistencia() {
-        return id_asistencia;
-    }
-
-    public void setId_asistencia(String id_asistencia) {
-        this.id_asistencia = id_asistencia;
-    }
-
-    public String getAsistencia() {
-        return asistencia;
-    }
-
-    public void setAsistencia(String asistencia) {
-        this.asistencia = asistencia;
-    }
-
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
- 
+    
 }
