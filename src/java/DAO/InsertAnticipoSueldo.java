@@ -1,6 +1,6 @@
 package DAO;
 import BD.conexion;
-import Model.Constructoranticiposueldo;  
+import Model.Anticipo;  
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 
 public class InsertAnticipoSueldo {
 
-public static boolean agregarAnticipoSueldo(Constructoranticiposueldo AnticipoSueldo) {
+public static boolean agregarAnticipoSueldo(Anticipo AnticipoSueldo) {
         boolean agregado = false;
         try {
             conexion c = new conexion();
@@ -21,8 +21,7 @@ public static boolean agregarAnticipoSueldo(Constructoranticiposueldo AnticipoSu
             if (con != null) {
                 Statement st;
                 st = con.createStatement();
-                String sql="INSERT INTO anticiposueldo(personal_id, postulante_id,montoanticipado, \n"
-                        + "            created_at )VALUES ('" + AnticipoSueldo.getPersonalid() + "','" + AnticipoSueldo.getPostulanteid() 
+                String sql="INSERT INTO anticiposueldo(personal_id, postulante_id,montoanticipado )VALUES ('" + AnticipoSueldo.getPersonal_id() + "','" + AnticipoSueldo.getPostulante_id() 
                          + "','" + AnticipoSueldo.getMontoanticipado() + "')";
                 st.executeUpdate(sql);
                 agregado = true;

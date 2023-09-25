@@ -29,9 +29,9 @@
  
         <div class="div-head-tittle"><h2></h2></div>
     
-        <section class="wrapper">
+        <section class="wrapper" style ="margin-bottom: -30%!important; margin-top:-7%; " >
             <div class="inner" >
-                <div class="highlights">
+                <div class="highlights" >
                         <!-- PRIMER MODULO -->
                     <section class="animadoagregarinformacion">
                         <div class="content">

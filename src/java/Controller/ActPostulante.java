@@ -130,7 +130,7 @@ public class ActPostulante extends HttpServlet {
             String mesFormateado = (mes < 10) ? String.format("0%d", mes) : String.valueOf(mes);
             int dia = localDate.getDayOfMonth();
             String diaFormateado = (dia < 10) ? String.format("0%d", dia) : String.valueOf(dia);
-            usuario.setPostulante_fechanacimiento(String.valueOf(año) + "-" + mesFormateado + "-" + diaFormateado);
+            usuario.setPostulante_fechanacimiento(String.valueOf(año) + "-" + mesFormateado + "-    " + diaFormateado);
             request.setAttribute("usuario", usuario);
             request.getRequestDispatcher("Actualizardatos.jsp").forward(request, response);
         }

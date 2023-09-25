@@ -23,7 +23,7 @@ $(function () {
     $('#btn-buscarpostulante').click(function (e) {
         buscadorpostulantenew();
     });
-    const buscadorpostulantenew = () => {
+  const buscadorpostulantenew = () => {
 
         var dato = {
             cedula: document.getElementById("txt-ced").value 
@@ -45,9 +45,50 @@ $(function () {
                 $("#txt-namep").val(data.postulante); 
                 $("#txt-nameme").val(data.personal); 
                 
+                $("#txt-personal-id").val(data.personal_id); 
+                $("#txt-postulante-id").val(data.postulante_id); 
+                
+                renderAsistencias(data.postulante_id);
+                
                postulante_id=data.postulante_id;
                personal_id=data.personal_id;
                personal_dni=data.personal_dni;
+                
+            }
+        });
+    };
+    
+    const renderAsistencias = (postulante_id) => {
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: "./BuscadorAsistenciasController",
+            data: {postulante_id: postulante_id},
+            dataType: 'json',
+            error: function (request, status, error)
+            {
+                alert(request, status, error);
+            },
+            success: function (data)
+            {
+                console.log(data);
+                
+                $("#body_asistencias").html("");
+                var output = ``;
+                for(var i = 0; i < data.length; i++) {
+                    //porc_div = porc_div + 15;
+                    //divv.style.marginTop= porc_div + "px";
+                    output += `
+                        <tr>
+                            <td>${i + 1}</th>
+                            <td>${data[i].fecha}</th>
+                            <td>${data[i].actividadobservacion}</th>
+                            <td> <input type="button" class="agre" value="Modificar" onclick="modificar(` + i + `)"> </td>
+                            <td> <button type="button" class="elimar" onclick="eliminar(` + i + `)">Eliminar</button> </td>
+                        </tr>
+                        `;
+                }
+                $("#body_asistencias").append(output);
                 
             }
         });

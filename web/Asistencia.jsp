@@ -14,7 +14,7 @@
             <nav class="nav-tp"></nav>
         </header>      
         <div class="div-head-tittle"><h2></h2></div>
-        <form class="form1"> 
+        <form class="form1" action="./Addasistencia" method="GET" enctype="multipart/form-data">
             <section class="sec-main">
                 <div class="div-cont-main">
                
@@ -29,12 +29,16 @@
                         <tbody>
                             <tr>
                                 <td> <div class="div-cont-name"><input type="text"onkeypress='return validaNumericos(event)' value="${usuario.postulante_dni}" id="txt-ced" class="inp-ced" placeholder="Numero de identificacion" name="Identificacion" onkeypress='return validaNumericosA(event)' maxlength="15"/> 
+                                        <br>
                                         <input style='margin-left: 30px; ' type="button"  id="btn-buscarpostulante" class="btn-accept" value="Buscar"></div></td>
                                         <td><div class="div-cont-name"><input type="text" disabled="true" value="${usuario.postulante_primernombre} ${usuario.postulante_primerapellido}" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Personal" name="nombres personal" onkeypress="return soloLetras(event)"/></div></td>
                                 <td><div class="div-cont-name"><input type="text" id="txt-nameme" class="inp-name" value="${userLogin}" placeholder="Nombres del Administrador" name="nombres administrador" onkeypress="return soloLetras(event)"disabled="true"/></div></td>
+                                                        
+                                <input hidden type="text" id="txt-personal-id" class="inp-name"  name="personal_id"/>
+                                <input hidden type="text" id="txt-postulante-id" class="inp-name"  name="postulante_id"/>
+                                
                             </tr>
                         </tbody>
-
                         <thead >
                             <tr>                          
                                 <th>Fecha de Asistencia</th>
@@ -43,26 +47,28 @@
                         </thead>
                         <tbody>
                             <tr>
-                                 <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Fecha de Asistencia"required=""  name="FechadeAsistencia"/></div></td> 
-                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Actividad/Observacion" name="Actividad/Observacion"/></div></td>
+                                <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Fecha de Asistencia"required=""  name="fecha"/></div></td> 
+                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Actividad/Observacion" name="actividadobservacion"/></div></td>
                                 <td><div style='margin-top: -20px !important;'class="div-cont-lname">
-                                      <input type="button"  id="btn-addasistencia" class="btn-accept" value="GUARDAR"></div></td> 
+
+                                        <input type="submit" id="btn-actiong" class="btn-accept" value="Guardar"/>
+                                        <!--<input type="submit"  id="btn-addasistencia" class="btn-accept" value="GUARDAR"></div></td> -->
                             </tr>
                         </tbody>                        
                     </table> 
 
                     <div style="width: 70%; height: auto; margin-left: auto; margin-right: auto" >
                         <div >
-                            <table id="tabla" class="table table-bordered">
-                                <thead>
-                                    <tr> 
-                                        <td>Nª</td>
+                           <table id="tabla_asistencia" class="table table-bordered">
+                                <thead> 
+                                    <!--     <td>Nª</td>
                                         <td>Fecha de Asistencia</td>
                                         <td>Actividad / Observacion</td>
-                                        <td>Acciones</td>
-                                    </tr>
+                                        <td>Acciones</td> -->
                                 </thead> 
-                               
+                                <tbody id="body_asistencias" align="center">
+
+                                </tbody>
                             </table> 
                         </div>
                     </div>
@@ -123,7 +129,7 @@
     </body>
     <footer></footer>
     <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>   
-    <script src="js/Asistencia.js" type="text/javascript"></script>
+    <!--<script src="js/Asistencia.js" type="text/javascript"></script>-->
     <script src="js/Buscadorpostulante.js" type="text/javascript"></script>
     <script src="js/newjavascript.js" type="text/javascript"></script>    
 </html>

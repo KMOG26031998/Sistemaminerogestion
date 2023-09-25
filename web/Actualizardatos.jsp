@@ -38,11 +38,11 @@
                         </thead>
                         <tbody>
                             <tr>
-
-                                <td><div class="div-cont-lname"><input type="text" value="${usuario.postulante_segundoapellido}" id="txt-lnamesp2" class="inp-lname" placeholder="Segundo Apellido" name="SegundoApellidos"required=""  onkeypress="return soloLetras(event)" onkeyup="mayus(this);"/></div></td>
-                                <td><div class="div-cont-lname"><input type="date" value="${usuario.postulante_fechanacimiento}" id="txt-lnamefa" class="inp-lname" placeholder="Fecha de nacimiento"required=""  name="Fechadenacimiento"/></div></td> 
-                                <td><div class="div-cont-lname"><input type="text" value="${usuario.postulante_convencional}" id="txt-lnametca" class="inp-lname" placeholder="Telefono Convencional" name="convencional"required=""  onkeypress='return validaNumericos(event)'/></div></td>
-                            </tr>
+                        <input type="text" value="${usuario.postulante_dni}" id="cedula" name="cedula" style="display: none;"/>
+                        <td><div class="div-cont-lname"><input type="text" value="${usuario.postulante_segundoapellido}" id="txt-lnamesp2" class="inp-lname" placeholder="Segundo Apellido" name="SegundoApellidos"required=""  onkeypress="return soloLetras(event)" onkeyup="mayus(this);"/></div></td>
+                        <td><div class="div-cont-lname"><input type="date" value="${usuario.postulante_fechanacimiento}" id="txt-lnamefa" class="inp-lname" placeholder="Fecha de nacimiento"required=""  name="Fechadenacimiento"/></div></td> 
+                        <td><div class="div-cont-lname"><input type="text" value="${usuario.postulante_convencional}" id="txt-lnametca" class="inp-lname" placeholder="Telefono Convencional" name="convencional"required=""  onkeypress='return validaNumericos(event)'/></div></td>
+                        </tr>
                         </tbody>
                         <thead >
                             <tr>
