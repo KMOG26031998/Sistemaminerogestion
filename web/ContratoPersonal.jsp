@@ -38,7 +38,7 @@
                             <tbody>
                                 <tr>
                             <input type="text" style="display: none" value="${usuario.postulanteid}" name="id" required/>                            <input type="text" style="display: none" value="${usuario.postulanteid}" name="id" required/>
-                            <input type="text"  value="${usuario.contrato}" name="id" required/>
+                         
 
                             <td> <div class="div-cont-name"><input type="text" id="txt-cedi" class="inp-ced" placeholder="Numero de identificacion" value="${usuario.postulante_dni}" name="cedula" disabled="true" onkeypress='return validaNumericos(event)' maxlength="10" required/></div> </td>
                             <td> <div class="div-cont-name"  ><input type="text" id="txt-namen" class="inp-name" placeholder="Nombres" value="${usuario.postulante_primernombre} ${usuario.postulante_segundonombre}" name="Nombres" disabled="true" onkeyup="mayus(this);"/></div> </td>

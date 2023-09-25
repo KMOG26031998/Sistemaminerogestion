@@ -44,10 +44,10 @@
                                 <a href="">  
                                     <img alt=""src="img/add_user_group_woman_man_96px.png" alt=""/>
                                     <span class="label"></span></a>
-                                <h3 style="color:#007653; font-weight: bold">Ingresar Nuevo Postulante</h3>
+                                <h3 style="color:#007653;margin-top:-4%; font-weight: bold ">Ingresar Nuevo Postulante</h3>
                             </header>
-                            <p>Ingresar datos personales por primera vez</p>
-                            <a href="ingreso.jsp" class="button primary" style=" background: #007653 !important;">Ingresar Nuevo Postulante</a>
+                            <p>Ingresar los datos del postulante por primera vez</p>
+                            <a href="ingreso.jsp" class="button primary" style=" background: #007653 !important; margin-top:-9%;">Ingresar Nuevo Postulante</a>
                             <br>
                             <a href="ListaPersonalModificar.jsp" class="button primary" style=" background: #007653 !important; margin-top: 12px;">Actualizar Postulante</a>
                         </div>
