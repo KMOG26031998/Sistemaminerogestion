@@ -1,6 +1,8 @@
 package DAO;
 
 import BD.conexion;
+import Model.Anticipo;
+import Model.Asistencia;
 import java.sql.SQLException;
 import Model.BuscadorPostulante;
 import Model.BuscadorPostulantePersonal;
@@ -295,9 +297,139 @@ public class Buscadorpostulantecontr {
         }
         return newbuscarp;
     } 
+    
+    public ArrayList<Asistencia> BuscarAsistenciaList(String postulante_ident) {
+
+        ArrayList<Asistencia> asisteniciaList = new ArrayList<>();
+        Asistencia asistencia;
+
+        pst = null;
+        rs = null;
 
 
+        try {
+            sql_command = "select * from asistencia where postulante_id = " + postulante_ident + "order by id_asistencia asc";
+            pst = cn.getConecction().prepareStatement(sql_command);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                String id_asistencia = String.valueOf(rs.getString("id_asistencia"));
+                String personal_id = String.valueOf(rs.getString("personal_id"));
+                String postulante_id = String.valueOf(rs.getString("postulante_id"));
+                String fecha = String.valueOf(rs.getString("fecha"));
+                String actividadobservacion = String.valueOf(rs.getString("actividadobservacion"));
+
+                asistencia = new Asistencia(id_asistencia,
+                                personal_id,
+                                postulante_id,
+                                fecha,
+                                actividadobservacion);
+                asisteniciaList.add(asistencia);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            try {
+                if (cn.isConected()) {
+                    cn.getConecction().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        int a = 1;
+        return asisteniciaList;
+    }
+    public BuscadorPostulantePersonal  anticipo(String cedula) {
+        BuscadorPostulantePersonal newbuscarp = null;
+        pst = null;
+        rs = null;
+        try {
+
+            sql_command = "select pos.postulante_id,p.personal_id,concat(pos.postulante_primer_nombre,' ',pos.postulante_apellido_paterno) as Postulante,\n" +
+            "concat (p.personal_primer_nombre,' ',p.personal_apellido_paterno) as Personal, p.personal_dni\n" +
+            "from personalcontratado pc, postulante  pos, personal p where pos.postulante_dni = '"+cedula+"' \n" +
+            "and pos.postulante_dni = pc.postulante_dni and pc.personal_user = p.personal_user ";
+            pst = cn.getConecction().prepareStatement(sql_command);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                newbuscarp = new BuscadorPostulantePersonal(); 
+
+                newbuscarp.setPostulante_id(Integer.valueOf(rs.getString("postulante_id")));
+                newbuscarp.setPersonal_id(Integer.valueOf(rs.getString("personal_id")));
+                newbuscarp.setPostulante(String.valueOf(rs.getString("postulante"))); 
+                newbuscarp.setPersonal(String.valueOf(rs.getString("personal")));
+                newbuscarp.setPersonal_dni(Integer.valueOf(rs.getString("personal_dni")));
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            try {
+                if (cn.isConected()) {
+                    cn.getConecction().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return newbuscarp;
+    } 
+ public ArrayList<Anticipo> BuscarAnticipoList(String postulante_ident) {
+
+        ArrayList<Anticipo> anticipoList = new ArrayList<>();
+        Anticipo anticipo;
+
+        pst = null;
+        rs = null;
 
 
+        try {
+            sql_command = "select * from anticiposueldo where postulante_id = " + postulante_ident + "order by id_anticiposueldo asc";
+            pst = cn.getConecction().prepareStatement(sql_command);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                String id_anticipo = String.valueOf(rs.getString("id_anticiposueldo"));
+                String personal_id = String.valueOf(rs.getString("personal_id"));
+                String postulante_id = String.valueOf(rs.getString("postulante_id"));
+                String fecha = String.valueOf(rs.getString("fecha"));
+                String actividadobservacion = String.valueOf(rs.getString("actividadobservacion"));
 
+                anticipo = new Anticipo(id_anticipo,
+                                personal_id,
+                                postulante_id,
+                                fecha,
+                                actividadobservacion);
+                anticipoList.add(anticipo);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        } finally {
+            try {
+                if (cn.isConected()) {
+                    cn.getConecction().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        int a = 1;
+        return anticipoList;
+    }
 }

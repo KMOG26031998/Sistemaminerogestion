@@ -2,51 +2,58 @@ package Model;
 
 import java.sql.Timestamp;
 
-public class Constructoranticiposueldo {
-
-    private int personalid, postulanteid;
-    private int montoanticipado;
-    private Timestamp created_at ;
-    public Constructoranticiposueldo() {
+public class Anticipo {
+ private String id_anticiposueldo, personal_id, postulante_id, created_at, montoanticipado;
+   
+    public Anticipo() {
     }
 
-    public Constructoranticiposueldo(int montoanticipado,int personalid, int postulanteid ) {
-        this.personalid = personalid;
-        this.postulanteid = postulanteid; 
- this.montoanticipado = montoanticipado; 
+    public Anticipo(String id_anticiposueldo, String personal_id, String postulante_id, String created_at, String montoanticipado) {
+        this.id_anticiposueldo = id_anticiposueldo;
+        this.personal_id = personal_id;
+        this.postulante_id = postulante_id;
+        this.created_at = created_at; 
+         this.montoanticipado = montoanticipado; 
     }
 
-    public int getPersonalid() {
-        return personalid;
+    public String getId_anticiposueldo() {
+        return id_anticiposueldo;
     }
 
-    public void setPersonalid(int personalid) {
-        this.personalid = personalid;
+    public void setId_anticiposueldo(String id_anticiposueldo) {
+        this.id_anticiposueldo = id_anticiposueldo;
     }
 
-    public int getPostulanteid() {
-        return postulanteid;
+    public String getPersonal_id() {
+        return personal_id;
     }
 
-    public void setPostulanteid(int postulanteid) {
-        this.postulanteid = postulanteid;
+    public void setPersonal_id(String personal_id) {
+        this.personal_id = personal_id;
     }
 
-    public int getMontoanticipado() {
-        return montoanticipado;
+    public String getPostulante_id() {
+        return postulante_id;
     }
 
-    public void setMontoanticipado(int montoanticipado) {
-        this.montoanticipado = montoanticipado;
+    public void setPostulante_id(String postulante_id) {
+        this.postulante_id = postulante_id;
     }
 
-    public Timestamp getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(Timestamp created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
 
-    
+    public String getMontoanticipado() {
+        return montoanticipado;
+    }
+
+    public void setMontoanticipado(String montoanticipado) {
+        this.montoanticipado = montoanticipado;
+    }
+ 
 }
