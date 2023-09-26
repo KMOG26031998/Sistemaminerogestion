@@ -16,6 +16,14 @@
         <servlet-name>Asistencia</servlet-name>
         <servlet-class>Controller.ServAsistencia</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminaAsistencia</servlet-name>
+        <servlet-class>Controller.EliminaAsistencia</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EliminaAnticipo</servlet-name>
+        <servlet-class>Controller.EliminaAnticipo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>subirCurriculum</servlet-name>
         <url-pattern>/subirCurriculum</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>Asistencia</servlet-name>
         <url-pattern>/ServAsistencia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminaAsistencia</servlet-name>
+        <url-pattern>/EliminaAsistencia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminaAnticipo</servlet-name>
+        <url-pattern>/EliminaAnticipo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

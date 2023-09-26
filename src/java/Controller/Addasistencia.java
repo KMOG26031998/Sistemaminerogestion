@@ -1,25 +1,13 @@
 package Controller;
 import BD.conexion;
-import DAO.InsertAddPostulante;
-import DAO.Insertarasistencia;
-import Model.Constructorasistencia;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -71,7 +59,7 @@ public class Addasistencia extends HttpServlet {
                 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd, HH:mm:ss");
                 String date = dateFormat.format(Calendar.getInstance().getTime());
 
-                ps.setString(3, date); 
+                ps.setString(3, Fecha); 
                 ps.setString(4, actividadobservacion);
                 int resAsistencia = 0;
 
@@ -92,32 +80,8 @@ public class Addasistencia extends HttpServlet {
                     out.println(e);
                 }
             }
- /*
-            if (!personalid.equalsIgnoreCase("") && !postulanteid.equalsIgnoreCase("")
-                    && !Fecha.equalsIgnoreCase("") && !actividadobservacion.equalsIgnoreCase("")){
-                Constructorasistencia busuario = new Constructorasistencia(personalid, postulanteid, Fecha, actividadobservacion );
-                boolean sw = Insertarasistencia.agregarAsistencia(busuario);
-                if (sw) {
-//                    JOptionPane.showMessageDialog(null, "PACIENTE AGREGADA/O CORECTAMENTE");
-                    response.sendRedirect("Asistencia.jsp");
-//                    request.getRequestDispatcher("Principal.jsp").forward(request, response);
-                } else {
-                    int a = 1;
-//                    out.println("Si estas viendo este mensaje es por que algo salio mal, no se pudo completar tu solicitud.");
-                }
-            }*/
         }
 
-//<<<<<<< Updated upstream
-                
-              //   insertarasistencia.agregarasistenciadetalle(id_encabezado,fecha,observacion);
-//                JOptionPane.showMessageDialog(null, "ASISTENCIA AGREGADA CORECTAMENTE");
- 
-                // insertarasistencia.agregarasistenciadetalle(id_encabezado, fecha, observacion);
-                // JOptionPane.showMessageDialog(null, "ASISTENCIA AGREGADA CORECTAMENTE");
-//>>>>>>> Stashed changes
-                // response.sendRedirect("Principal.jsp");
-                //JsonParser jsondetalle = new JsonParse(); 
 
     }
 
