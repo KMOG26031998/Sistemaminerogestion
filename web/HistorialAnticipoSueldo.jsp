@@ -36,9 +36,8 @@
                             Statement smt;
                             ResultSet rs;
                             smt = con.getConecction().createStatement();
-                            rs = smt.executeQuery("select ansue.id_anticiposueldo as Codigo,concat(p.postulante_primer_nombre,' ',p.postulante_segundo_nombre,' ',p.postulante_apellido_paterno,' ',p.postulante_apellido_materno) as Nombre_Completo_Empleado,ansue.created_at as Fecha_de_la_solicitud_del_anticipo,ansue.montoanticipado as Monto_Anticipado,concat(pr.personal_primer_nombre,' ',pr.personal_segundo_nombre,' ',pr.personal_apellido_paterno,' ',pr.personal_apellido_materno) as Administrador_aprobador from anticiposueldo ansue inner join postulante p on ansue.postulante_id=p.postulante_id  inner join personal pr on pr.personal_id= ansue.personal_id ");
+                            rs = smt.executeQuery("select ansue.id_anticiposueldo as Codigo,concat(p.postulante_primer_nombre,' ',p.postulante_segundo_nombre,' ',p.postulante_apellido_paterno,' ',p.postulante_apellido_materno) as Nombre_Completo_Empleado,ansue.created_at as Fecha_de_la_solicitud_del_anticipo,ansue.montoanticipado as Monto_Anticipado,concat(pr.personal_primer_nombre,' ',pr.personal_segundo_nombre,' ',pr.personal_apellido_paterno,' ',pr.personal_apellido_materno) as Administrador_aprobador,ansue.id_anticiposueldo as id_anticipo from anticiposueldo ansue inner join postulante p on ansue.postulante_id=p.postulante_id  inner join personal pr on pr.personal_id= ansue.personal_id ");
                             if (rs.next()) {
-                                rs = smt.executeQuery("select ansue.id_anticiposueldo as Codigo,concat(p.postulante_primer_nombre,' ',p.postulante_segundo_nombre,' ',p.postulante_apellido_paterno,' ',p.postulante_apellido_materno) as Nombre_Completo_Empleado,ansue.created_at as Fecha_de_la_solicitud_del_anticipo,ansue.montoanticipado as Monto_Anticipado,concat(pr.personal_primer_nombre,' ',pr.personal_segundo_nombre,' ',pr.personal_apellido_paterno,' ',pr.personal_apellido_materno) as Administrador_aprobador from anticiposueldo ansue inner join postulante p on ansue.postulante_id=p.postulante_id  inner join personal pr on pr.personal_id= ansue.personal_id ");
                         %>
                         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%"style="margin-top:70px ;">
                             <thead >
@@ -48,7 +47,7 @@
                                     <th>Fecha de la solicitud del anticipo </th> 
                                     <th>Monto Anticipado </th> 
                                     <th>Administrador aprobador </th> 
-                                     <!-- <th>Sueldo</th>  --> 
+                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,6 +59,10 @@
                                     <td><%= rs.getString("Fecha_de_la_solicitud_del_anticipo")%></td> 
                                     <td><%= rs.getString("Monto_Anticipado")%></td> 
                                     <td><%= rs.getString("Administrador_aprobador")%></td> 
+                                     <td class="d-flex justify-content-center">
+                                        <a class="btn btn-success" style="color: #fff !important;"  >Editar</a>
+                                        <a class="btn btn-danger" style="color: #fff !important;" href="EliminaAnticipo?id=<%=rs.getString("id_anticipo")%>">Eliminar</a>
+                                    </td> 
                                 </tr>
                                 <%}%>
                             </tbody>        
