@@ -40,7 +40,7 @@
                             if (rs.next()) {
                                 rs = smt.executeQuery("select p.postulante_dni as Cedula, concat(p.postulante_primer_nombre,' ',p.postulante_segundo_nombre,' ',p.postulante_apellido_paterno,' ',p.postulante_apellido_materno) as Nombre_Empleado,p.postulante_genero as Sexo,p.postulante_grupo as Discapacidad,p.created_at as Fecha_Postulacion,p.postulante_provincia as Provincia,p.postulante_canton as Canton,p.postulante_parroquia as Parroquia,p.postulante_direccion as Direccion,p.postulante_estado_civil as Estado_Civil,p.postulante_telefono as Numero_Celular,p.postulante_convencional as Numero_Convencional,p.postulante_cargo as Cargo_de_Trabajo,pc.fechaingreso as Fecha_de_contrato from postulante p inner join personalcontratado pc  on p.postulante_dni = pc.postulante_dni ");
                         %>
-                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%"style="margin-top:70px ;">
+                        <table id="Historial" class="table table-striped table-bordered" cellspacing="0" width="100%"style="margin-top:70px ;">
                             <thead >
                                 <tr>
                                     <th>Cedula</th>

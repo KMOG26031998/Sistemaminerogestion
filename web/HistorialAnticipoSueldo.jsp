@@ -60,7 +60,7 @@
                                     <td><%= rs.getString("Monto_Anticipado")%></td> 
                                     <td><%= rs.getString("Administrador_aprobador")%></td> 
                                      <td class="d-flex justify-content-center">
-                                        <a class="btn btn-success" style="color: #fff !important;"  >Editar</a>
+                                         <a class="btn btn-success" style="color: #fff !important;" >Editar</a>
                                         <a class="btn btn-danger" style="color: #fff !important;" href="EliminaAnticipo?id=<%=rs.getString("id_anticipo")%>">Eliminar</a>
                                     </td> 
                                 </tr>
