@@ -1,5 +1,7 @@
 package DAO;
+
 import BD.conexion;
+import Model.Asistencia;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,7 +31,7 @@ public class Insertarasistencia {
                     + "  from postulante  where postulante_dni = '" + cedula + "'";
             pst = cn.getConecction().prepareStatement(sql_command);
             rs = pst.executeQuery();
-            while (rs.next()) { 
+            while (rs.next()) {
                 newbuscar.setNombrescompleto(String.valueOf(rs.getString("nombres") + "-" + rs.getString("postulante_id")));
                 System.out.println(String.valueOf(rs.getString("postulante_id") + rs.getString("nombres")));
             }
@@ -86,8 +88,7 @@ public class Insertarasistencia {
         }
         return newbuscarm;
     }*/
-
-    public void mostrarasistencia(int idasist, int idpersonal,int idpostulante,String fecha, String observacion) {
+    public void mostrarasistencia(int idasist, int idpersonal, int idpostulante, String fecha, String observacion) {
 
         try {
             conexion c = new conexion();
@@ -104,42 +105,42 @@ public class Insertarasistencia {
     }
 
     public static boolean agregarAsistencia(Constructorasistencia asistencia) {
-    boolean agregado = false;
-    try {
-        conexion c = new conexion();
-        Connection con = c.getConecction();
+        boolean agregado = false;
+        try {
+            conexion c = new conexion();
+            Connection con = c.getConecction();
 
-        if (con != null) {
-            String query = "INSERT INTO public.asistencia(\n"
-                    + "            personal_dni, postulante_id, \n"
-                    + "            fecha, \n"
-                    + "            actividadobservacion)\n"
-                    + "    VALUES (?, ?, ?, ?);";
+            if (con != null) {
+                String query = "INSERT INTO public.asistencia(\n"
+                        + "            personal_dni, postulante_id, \n"
+                        + "            fecha, \n"
+                        + "            actividadobservacion)\n"
+                        + "    VALUES (?, ?, ?, ?);";
 
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, asistencia.getPersonalid());
-            ps.setInt(2, asistencia.getPostulanteid());
-            ps.setTimestamp(3,convertirAFechaTimestamp((asistencia.getFecha()))); 
-            ps.setString(4, asistencia.getObservacion()); 
-         
-            String persona=asistencia.toString();
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setInt(1, asistencia.getPersonalid());
+                ps.setInt(2, asistencia.getPostulanteid());
+                ps.setTimestamp(3, convertirAFechaTimestamp((asistencia.getFecha())));
+                ps.setString(4, asistencia.getObservacion());
 
-            int rowsAffected = ps.executeUpdate();
-            if (rowsAffected > 0) {
-                agregado = true;
+                String persona = asistencia.toString();
+
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected > 0) {
+                    agregado = true;
+                }
+
+                ps.close();
+                c.isConected();
             }
-
-            ps.close();
-            c.isConected();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage().toString());
+            agregado = false;
         }
-    } catch (SQLException e) {
-        System.out.println(e.getMessage().toString());
-        agregado = false;
+
+        return agregado;
     }
 
-    return agregado;
-}
-    
     private static Timestamp convertirAFechaTimestamp(String fechaString) {
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -150,4 +151,44 @@ public class Insertarasistencia {
             return null;
         }
     }
+
+    public Asistencia ConsultaAsistencia(String id) {
+        boolean agregado = false;
+        try {
+            Asistencia asistencia = new Asistencia();
+            pst=null;
+            rs = null;
+            String query = "select * from public.asistencia asis where asis.id_asistencia =?";
+            pst = cn.getConecction().prepareStatement(query);
+            pst.setInt(1, Integer.valueOf(id));
+            rs= pst.executeQuery();
+            while (rs.next()) {
+                asistencia.setId_asistencia(rs.getString("id_asistencia"));
+                asistencia.setPersonal_id(rs.getString("personal_id"));
+                asistencia.setPostulante_id(rs.getString("postulante_id"));
+                asistencia.setActividadobservacion(rs.getString("actividadobservacion"));
+                asistencia.setFecha(rs.getString("fecha"));
+            }
+            return asistencia;
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+            
+        } finally {
+            try {
+                if (cn.isConected()) {
+                    cn.getConecction().close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return null;
+    }
+
 }

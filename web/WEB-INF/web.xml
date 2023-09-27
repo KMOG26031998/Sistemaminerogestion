@@ -24,6 +24,10 @@
         <servlet-name>EliminaAnticipo</servlet-name>
         <servlet-class>Controller.EliminaAnticipo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditaAsistencia</servlet-name>
+        <servlet-class>Controller.EditaAsistencia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>subirCurriculum</servlet-name>
         <url-pattern>/subirCurriculum</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>EliminaAnticipo</servlet-name>
         <url-pattern>/EliminaAnticipo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditaAsistencia</servlet-name>
+        <url-pattern>/EditaAsistencia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

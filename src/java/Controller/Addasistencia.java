@@ -38,35 +38,47 @@ public class Addasistencia extends HttpServlet {
             String personalid = request.getParameter("personal_id");
             String postulanteid = request.getParameter("postulante_id");
             String Fecha= request.getParameter("fecha");
+            String Modificar = request.getParameter("modificar");
             String actividadobservacion = request.getParameter("actividadobservacion");
 
 
             try {
                 System.out.println("connection done");
+                if (Modificar =="" || Modificar == null) {
+                    String sqlAsistencia = "INSERT INTO public.asistencia(\n"
+                            + "            personal_id, postulante_id, \n"
+                            + "            fecha, \n"
+                            + "            actividadobservacion)\n"
+                            + "    VALUES (?, ?, ?, ?);";
+                    ps = c.getConecction().prepareStatement(sqlAsistencia, Statement.RETURN_GENERATED_KEYS);
+                    ps.setInt(1, Integer.parseInt(personalid));
+                    ps.setInt(2, Integer.parseInt(postulanteid));
 
-
-                String sqlAsistencia = "INSERT INTO public.asistencia(\n"
-                    + "            personal_id, postulante_id, \n"
-                    + "            fecha, \n"
-                    + "            actividadobservacion)\n"
-                    + "    VALUES (?, ?, ?, ?);";
-
-
-                ps = c.getConecction().prepareStatement(sqlAsistencia, Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, Integer.parseInt(personalid));
-                ps.setInt(2, Integer.parseInt(postulanteid));
-
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd, HH:mm:ss");
-                String date = dateFormat.format(Calendar.getInstance().getTime());
-
-                ps.setString(3, Fecha); 
-                ps.setString(4, actividadobservacion);
-                int resAsistencia = 0;
-
-                resAsistencia = ps.executeUpdate();
-                if (resAsistencia != 0) {
-                    response.sendRedirect(request.getContextPath() + "/Asistencia.jsp");
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd, HH:mm:ss");
+                    String date = dateFormat.format(Calendar.getInstance().getTime());
+                    ps.setString(3, Fecha);
+                    ps.setString(4, actividadobservacion);
+                    int resAsistencia = 0;
+                    resAsistencia = ps.executeUpdate();
+                    if (resAsistencia != 0) {
+                        response.sendRedirect(request.getContextPath() + "/Asistencia.jsp");
+                    }
+                }else
+                {
+                    String sqlModificar="UPDATE public.asistencia SET personal_id=?, postulante_id=?, fecha=?, actividadobservacion=? WHERE id_asistencia=?";
+                    ps = c.getConecction().prepareStatement(sqlModificar, Statement.RETURN_GENERATED_KEYS);
+                    ps.setInt(1, Integer.parseInt(personalid));
+                    ps.setInt(2, Integer.parseInt(postulanteid));
+                    ps.setString(3, Fecha);
+                    ps.setString(4, actividadobservacion);
+                    ps.setInt(5, Integer.valueOf(Modificar));
+                    int resAsistencia = 0;
+                    resAsistencia = ps.executeUpdate();
+                    if (resAsistencia != 0) {
+                        response.sendRedirect(request.getContextPath() + "/HistorialAsistencia.jsp");
+                    }
                 }
+             
 
             } catch (SQLException e) {
                 out.println("Exception: " + e);

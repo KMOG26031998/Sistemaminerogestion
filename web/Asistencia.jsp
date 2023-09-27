@@ -17,7 +17,7 @@
         <form class="form1" action="./Addasistencia" method="GET" enctype="multipart/form-data">
             <section class="sec-main">
                 <div class="div-cont-main">
-               
+
                     <table style='width: 100%; text-align: center; margin-left: 20px; margin-top: 30px'>
                         <thead >
                             <tr>
@@ -25,19 +25,20 @@
                                 <th>Nombres del Personal</th> 
                                 <th>Nombres del Administrador</th>  
                             </tr>
-                            </thead>
+                        </thead>
                         <tbody>
                             <tr>
                                 <td> <div class="div-cont-name"><input type="text"onkeypress='return validaNumericos(event)' value="${usuario.postulante_dni}" id="txt-ced" class="inp-ced" placeholder="Numero de identificacion" name="Identificacion" onkeypress='return validaNumericosA(event)' maxlength="15"/> 
                                         <br>
                                         <input style='margin-left: 30px; ' type="button"  id="btn-buscarpostulante" class="btn-accept" value="Buscar"></div></td>
-                                        <td><div class="div-cont-name"><input type="text" disabled="true" value="${usuario.postulante_primernombre} ${usuario.postulante_primerapellido}" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Personal" name="nombres personal" onkeypress="return soloLetras(event)"/></div></td>
+                                <td><div class="div-cont-name"><input type="text" disabled="true" value="${usuario.postulante_primernombre} ${usuario.postulante_primerapellido}" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Personal" name="nombres personal" onkeypress="return soloLetras(event)"/></div></td>
                                 <td><div class="div-cont-name"><input type="text" id="txt-nameme" class="inp-name" value="${userLogin}" placeholder="Nombres del Administrador" name="nombres administrador" onkeypress="return soloLetras(event)"disabled="true"/></div></td>
-                                                        
-                                <input hidden type="text" id="txt-personal-id" class="inp-name"  name="personal_id"/>
-                                <input hidden type="text" id="txt-postulante-id" class="inp-name"  name="postulante_id"/>
-                                
-                            </tr>
+
+                        <input hidden value="${Asistencia.personal_id}" type="text" id="txt-personal-id" class="inp-name"  name="personal_id"/>
+                        <input hidden value="${Asistencia.postulante_id}" type="text" id="txt-postulante-id" class="inp-name"  name="postulante_id"/>
+                        <input hidden value="${modificar}" type="text" id="txt-modificar"  name="modificar"/>
+
+                        </tr>
                         </tbody>
                         <thead >
                             <tr>                          
@@ -47,8 +48,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" placeholder="Fecha de Asistencia"required=""  name="fecha"/></div></td> 
-                                <td><div class="div-cont-name"><input type="text"onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Actividad/Observacion" name="actividadobservacion"/></div></td>
+                                <td><div class="div-cont-lname"><input type="date" value="${Asistencia.fecha}" id="txt-lname" class="inp-lname" placeholder="Fecha de Asistencia"required=""  name="fecha"/></div></td> 
+                                <td><div class="div-cont-name"><input type="text" value="${Asistencia.actividadobservacion}" onkeyup="mayus(this);" id="txt-namei" class="inp-name" placeholder="Actividad/Observacion" name="actividadobservacion"/></div></td>
                                 <td><div style='margin-top: -20px !important;'class="div-cont-lname">
 
                                         <input type="submit" id="btn-actiong" class="btn-accept" value="Guardar"/>
@@ -59,7 +60,7 @@
 
                     <div style="width: 70%; height: auto; margin-left: auto; margin-right: auto" >
                         <div >
-                           <table id="tabla_asistencia" class="table table-bordered">
+                            <table id="tabla_asistencia" class="table table-bordered">
                                 <thead> 
                                     <!--     <td>Nª</td>
                                         <td>Fecha de Asistencia</td>

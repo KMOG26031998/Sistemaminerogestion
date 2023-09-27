@@ -61,7 +61,7 @@
                                     <td><%= rs.getString("Encargado_del_Registro")%></td> 
                                     
                                     <td class="d-flex justify-content-center">
-                                        <a class="btn btn-success" style="color: #fff !important;"  >Editar</a>
+                                        <a class="btn btn-success" style="color: #fff !important;" href="EditaAsistencia?id=<%=rs.getString("id_asistencia")%>" >Editar</a>
                                         <a class="btn btn-danger" style="color: #fff !important;" href="EliminaAsistencia?id=<%=rs.getString("id_asistencia")%>">Eliminar</a>
                                     </td> 
                                 </tr>
