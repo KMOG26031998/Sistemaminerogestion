@@ -70,12 +70,8 @@
             // Datos simulados para la tabla (reemplaza esto con tu lógica de obtención de datos)
             var paginaActual = 1;
             var personas = '';
-
-
-            var elementosPorPagina = 5;
+            var elementosPorPagina = 7;
             var totalPaginas = Math.ceil(personas.length / elementosPorPagina);
-
-
             function mostrarPersonasEnPagina(pagina) {
                 var inicio = (pagina - 1) * elementosPorPagina;
                 var fin = inicio + elementosPorPagina;
@@ -86,7 +82,7 @@
                             + "</td><td>" + personas[i].postulante_dni + "</td><td>" + personas[i].postulante_nacionalidad;
                     if (!personas[i].contrato) {
                         html += "</td><td><a href=\"AddContrato?id=" + personas[i].postulanteid + "\" class=\"btn btn-info\">Contratar</a></td></tr>";
-                    }else{
+                    } else {
                         html += "</td><td><a href=\"ServAsistencia?id=" + personas[i].postulanteid + "\" class=\"btn btn-primary\">Asistencia</a></td></tr>";
                     }
                 }
@@ -95,7 +91,7 @@
 
             function mostrarPaginacion() {
                 var html = "";
-
+                totalPaginas = Math.ceil(personas.length / elementosPorPagina);
                 for (var i = 1; i <= totalPaginas; i++) {
                     html += '<li class="page-item ' + (i === paginaActual ? "active" : "") + '"><a class="page-link" href="#">' + i + '</a></li>';
                 }
