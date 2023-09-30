@@ -31,8 +31,10 @@
                                         <td><div class="div-cont-name"><input type="text" disabled="true" value=" ${usuario.postulante_primernombre} ${usuario.postulante_primerapellido}" id="txt-namep"onkeypress="return soloLetras(event)" class="inp-ced" placeholder="Nombres del Personal" name="nombres personal" onkeypress="return soloLetras(event)"/></div></td>
                                 <td><div class="div-cont-name"><input type="text" id="txt-nameme" class="inp-name" value="${userLogin}" placeholder="Nombres del Administrador" name="nombres administrador" onkeypress="return soloLetras(event)"disabled="true"/></div></td>
                                                         
-                                <input hidden type="text" id="txt-personal-id" class="inp-name"  name="personal_id"/>
-                                <input hidden type="text" id="txt-postulante-id" class="inp-name"  name="postulante_id"/>
+                                <input hidden type="text" value="${anticipo.personal_id}" id="txt-personal-id"  name="personal_id"/>
+                                <input hidden type="text" value="${anticipo.postulante_id}" id="txt-postulante-id"   name="postulante_id"/>
+                                <input hidden type="text" value="${modificar}" id="txt-postulante-id"   name="modificar"/>
+
                                 
                             </tr>
                         </tbody>
@@ -44,7 +46,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" value="${anticipo.created_at}" placeholder="Fecha del Anticipo"required=""  name="created_at"/></div></td> 
+                                <td><div class="div-cont-lname"><input type="date" id="txt-lname" class="inp-lname" value="${anticipo.created_at}" placeholder="Fecha del Anticipo" <required=""  name="created_at"/></div></td> 
                                 <td><div class="div-cont-name"><input type="number" onkeyup="validaNumericos(this)" value="${anticipo.montoanticipado}" id="txt-namei" class="inp-name" placeholder="Monto del Anticipo" name="montoanticipado"/></div></td>
                                 <td><div style='margin-top: -20px !important;'class="div-cont-lname">  <input type="submit" id="btn-actiong" class="btn-accept" value="GUARDAR"/></div></td>
                                       
